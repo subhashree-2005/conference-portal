@@ -25,7 +25,11 @@ SECRET_KEY = 'django-insecure-qs+zf)mk(#nw-_*dh1vjvplsit09cz$0k&v&_=5urvz)yv#$6@
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    '127.0.0.1',
+    'localhost',
+    'conference-portal-sqa5.onrender.com',
+]
 
 
 # Application definition
