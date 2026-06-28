@@ -13,38 +13,65 @@ from .models import (
     ContactMessage,
     BroadcastMessage
 )
-
+from .broadcast import (
+    send_email_to_all,
+    send_whatsapp_to_all
+)
 admin.site.site_header = "Conference Management System"
 
 admin.site.site_title = "Conference Admin"
 
 admin.site.index_title = "Administration Dashboard"
 
-@admin.register(Registration)
-class RegistrationAdmin(admin.ModelAdmin):
+@admin.register(BroadcastMessage)
+class BroadcastMessageAdmin(admin.ModelAdmin):
 
     list_display = (
-        "full_name",
-        "email",
-        "phone",
-        "organization",
-        "country",
-    )
-
-    search_fields = (
-        "full_name",
-        "email",
-        "organization",
-        "country",
+        "subject",
+        "send_email",
+        "send_whatsapp",
+        "created_at",
     )
 
     list_filter = (
-        "country",
+        "send_email",
+        "send_whatsapp",
     )
 
     ordering = (
-        "-id",
+        "-created_at",
     )
+
+    def save_model(self, request, obj, form, change):
+
+        # Save the broadcast first
+        super().save_model(request, obj, form, change)
+
+        try:
+
+            if obj.send_email:
+                send_email_to_all(
+                    obj.subject,
+                    obj.message
+                )
+
+            if obj.send_whatsapp:
+                send_whatsapp_to_all(
+                    obj.message
+                )
+
+            self.message_user(
+                request,
+                "✅ Broadcast sent successfully!"
+            )
+
+        except Exception as e:
+
+            self.message_user(
+                request,
+                f"❌ Error sending broadcast: {e}",
+                level="ERROR"
+            )
 @admin.register(PaperSubmission)
 class PaperSubmissionAdmin(admin.ModelAdmin):
 
