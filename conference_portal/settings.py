@@ -135,23 +135,19 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
 
 EMAIL_HOST = "smtp.gmail.com"
-
 EMAIL_PORT = 587
-
 EMAIL_USE_TLS = True
 
-EMAIL_HOST_USER = os.environ.get("subhashreeaich55@gmail.com")
-
-EMAIL_HOST_PASSWORD = os.environ.get("easw tveu xbct ddxf")
+EMAIL_HOST_USER = os.environ.get("EMAIL_HOST_USER")
+EMAIL_HOST_PASSWORD = os.environ.get("EMAIL_HOST_PASSWORD")
 
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 
 # -----------------------------
 # Green API
 # -----------------------------
-GREEN_API_ID_INSTANCE = os.environ.get("7107666703")
-
-GREEN_API_TOKEN = os.environ.get("f0b2596796914d28b43b6deb0931fc97bc94520b3b8143a2a7")
+GREEN_API_ID_INSTANCE = os.environ.get("GREEN_API_ID_INSTANCE")
+GREEN_API_TOKEN = os.environ.get("GREEN_API_TOKEN")
 
 JAZZMIN_SETTINGS = {
 
