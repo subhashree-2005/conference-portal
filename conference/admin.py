@@ -146,24 +146,6 @@ class ContactMessageAdmin(admin.ModelAdmin):
     ordering = (
         "-created_at",
     )
-@admin.register(BroadcastMessage)
-class BroadcastMessageAdmin(admin.ModelAdmin):
-
-    list_display = (
-        "subject",
-        "send_email",
-        "send_whatsapp",
-        "created_at",
-    )
-
-    list_filter = (
-        "send_email",
-        "send_whatsapp",
-    )
-
-    ordering = (
-        "-created_at",
-    )
 @admin.register(ConferenceSettings)
 class ConferenceSettingsAdmin(admin.ModelAdmin):
 
