@@ -9,7 +9,11 @@ from .models import (
     VenueLocation,
     ContactMessage,
     ConferenceTrack,
-    Gallery
+    Gallery,
+    BroadcastMessage)
+from .broadcast import (
+    send_email_to_all,
+    send_whatsapp_to_all
 )
 
 def home(request):
@@ -114,3 +118,38 @@ def contact_message(request):
             return redirect('/')
 
     return redirect('/')
+from django.contrib import messages
+
+from django.contrib import messages
+
+def broadcast(request):
+
+    if request.method == "POST":
+
+        subject = request.POST.get("subject")
+        message = request.POST.get("message")
+
+        send_email_to_all(subject, message)
+        send_whatsapp_to_all(message)
+
+        BroadcastMessage.objects.create(
+         subject=subject,
+         message=message,
+         send_email=True,
+         send_whatsapp=True,
+)
+
+        messages.success(
+            request,
+            "Broadcast sent successfully!"
+        )
+
+    broadcasts = BroadcastMessage.objects.all().order_by('-created_at')
+
+    return render(
+        request,
+        "broadcast.html",
+        {
+            "broadcasts": broadcasts
+        }
+    )

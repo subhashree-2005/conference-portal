@@ -5,7 +5,8 @@ from .views import (
     register,
     submit_paper,
     dashboard,
-    contact_message
+    contact_message,
+    broadcast
 )
 
 urlpatterns = [
@@ -34,6 +35,10 @@ path(
     contact_message,
     name='contact'
 ),
-
+path(
+    'broadcast/',
+    broadcast,
+    name='broadcast'
+),
 ]
 

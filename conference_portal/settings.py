@@ -134,3 +134,24 @@ BASE_DIR / 'conference/static'
 MEDIA_URL = '/media/'
 
 MEDIA_ROOT = BASE_DIR / 'media'
+# Email
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+
+EMAIL_HOST = 'smtp.gmail.com'
+
+EMAIL_PORT = 587
+
+EMAIL_USE_TLS = True
+
+EMAIL_HOST_USER = 'subhashreeaich55@gmail.com'
+
+EMAIL_HOST_PASSWORD = 'easw tveu xbct ddxf'
+
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+
+# Green API WhatsApp
+
+GREEN_API_ID_INSTANCE = "7107666703"
+
+GREEN_API_TOKEN = "f0b2596796914d28b43b6deb0931fc97bc94520b3b8143a2a7"
