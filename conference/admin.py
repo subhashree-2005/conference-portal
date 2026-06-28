@@ -48,12 +48,13 @@ class BroadcastMessageAdmin(admin.ModelAdmin):
         super().save_model(request, obj, form, change)
 
         try:
+# Temporarily disable email
 
-            if obj.send_email:
-                send_email_to_all(
-                    obj.subject,
-                    obj.message
-                )
+           # if obj.send_email:
+            #    send_email_to_all(
+             #       obj.subject,
+              #      obj.message
+               # )
 
             if obj.send_whatsapp:
                 send_whatsapp_to_all(
