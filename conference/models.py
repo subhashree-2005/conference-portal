@@ -122,6 +122,10 @@ class ConferenceSettings(models.Model):
         null=True
     )
 
+class Meta:
+    verbose_name = "Conference Settings"
+    verbose_name_plural = "Conference Settings"
+
     def __str__(self):
         return self.title
 class ContactMessage(models.Model):
@@ -151,7 +155,10 @@ class Gallery(models.Model):
     uploaded_at = models.DateTimeField(
         auto_now_add=True
     )
-
+class Meta:
+    verbose_name = "Gallery"
+    verbose_name_plural = "Gallery"
+    
     def __str__(self):
         return self.title
 class ConferenceTrack(models.Model):

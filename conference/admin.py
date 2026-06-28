@@ -14,14 +14,178 @@ from .models import (
     BroadcastMessage
 )
 
-admin.site.register(ConferenceSettings)
-admin.site.register(VenueLocation)
-admin.site.register(Registration)
-admin.site.register(ConferenceTrack)
-admin.site.register(PaperSubmission)
-admin.site.register(Speaker)
-admin.site.register(Announcement)
-admin.site.register(Schedule)
-admin.site.register(Gallery)
-admin.site.register(ContactMessage)
-admin.site.register(BroadcastMessage)
+admin.site.site_header = "Conference Management System"
+
+admin.site.site_title = "Conference Admin"
+
+admin.site.index_title = "Administration Dashboard"
+
+@admin.register(Registration)
+class RegistrationAdmin(admin.ModelAdmin):
+
+    list_display = (
+        "full_name",
+        "email",
+        "phone",
+        "organization",
+        "country",
+    )
+
+    search_fields = (
+        "full_name",
+        "email",
+        "organization",
+        "country",
+    )
+
+    list_filter = (
+        "country",
+    )
+
+    ordering = (
+        "-id",
+    )
+@admin.register(PaperSubmission)
+class PaperSubmissionAdmin(admin.ModelAdmin):
+
+    list_display = (
+        "paper_title",
+        "author_name",
+        "email",
+        "status",
+    )
+
+    search_fields = (
+        "paper_title",
+        "author_name",
+        "email",
+    )
+
+    list_filter = (
+        "status",
+    )
+    list_per_page =20
+
+    ordering = (
+        "-id",
+    )
+@admin.register(Speaker)
+class SpeakerAdmin(admin.ModelAdmin):
+
+    list_display = (
+        "name",
+        "designation",
+        "organization",
+    )
+
+    search_fields = (
+        "name",
+        "organization",
+    )
+    
+    list_per_page = 20
+
+    ordering = (
+        "name",
+    )
+@admin.register(Announcement)
+class AnnouncementAdmin(admin.ModelAdmin):
+
+    list_display = (
+        "title",
+        "created_at",
+    )
+
+    ordering = (
+        "-created_at",
+    )
+@admin.register(ContactMessage)
+class ContactMessageAdmin(admin.ModelAdmin):
+
+    list_display = (
+        "name",
+        "email",
+        "subject",
+        "created_at",
+    )
+
+    search_fields = (
+        "name",
+        "email",
+        "subject",
+    )
+    list_per_page = 20
+
+    ordering = (
+        "-created_at",
+    )
+@admin.register(BroadcastMessage)
+class BroadcastMessageAdmin(admin.ModelAdmin):
+
+    list_display = (
+        "subject",
+        "send_email",
+        "send_whatsapp",
+        "created_at",
+    )
+
+    list_filter = (
+        "send_email",
+        "send_whatsapp",
+    )
+
+    ordering = (
+        "-created_at",
+    )
+@admin.register(ConferenceSettings)
+class ConferenceSettingsAdmin(admin.ModelAdmin):
+
+    list_display = (
+        "title",
+        "venue",
+        "start_date",
+        "end_date",
+    )
+@admin.register(VenueLocation)
+class VenueLocationAdmin(admin.ModelAdmin):
+
+    list_display = (
+        "name",
+        "google_map_link",
+    )
+
+    search_fields = (
+        "name",
+    )
+@admin.register(ConferenceTrack)
+class ConferenceTrackAdmin(admin.ModelAdmin):
+
+    list_display = (
+        "name",
+    )
+
+    search_fields = (
+        "name",
+    )
+@admin.register(Gallery)
+class GalleryAdmin(admin.ModelAdmin):
+
+    list_display = (
+        "title",
+        "uploaded_at",
+    )
+
+    ordering = (
+        "-uploaded_at",
+    )
+@admin.register(Schedule)
+class ScheduleAdmin(admin.ModelAdmin):
+
+    list_display = (
+        "time",
+        "event",
+    )
+
+    ordering = (
+        "time",
+    )
