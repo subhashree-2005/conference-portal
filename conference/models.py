@@ -169,7 +169,13 @@ class ConferenceTrack(models.Model):
 
     def __str__(self):
         return self.name
+
 class BroadcastMessage(models.Model):
+    STATUS_CHOICES = [
+        ("Pending", "Pending"),
+        ("Sent", "Sent"),
+        ("Failed", "Failed"),
+    ]
 
     subject = models.CharField(max_length=200)
 
@@ -178,6 +184,12 @@ class BroadcastMessage(models.Model):
     send_email = models.BooleanField(default=True)
 
     send_whatsapp = models.BooleanField(default=False)
+
+    status = models.CharField(
+        max_length=20,
+        choices=STATUS_CHOICES,
+        default="Pending",
+    )
 
     created_at = models.DateTimeField(auto_now_add=True)
 
