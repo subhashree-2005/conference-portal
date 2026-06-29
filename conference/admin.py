@@ -13,10 +13,6 @@ from .models import (
     ContactMessage,
     BroadcastMessage
 )
-from .broadcast import (
-    send_email_to_all,
-    send_whatsapp_to_all
-)
 admin.site.site_header = "Conference Management System"
 
 admin.site.site_title = "Conference Admin"
@@ -28,51 +24,27 @@ class BroadcastMessageAdmin(admin.ModelAdmin):
 
     list_display = (
         "subject",
+        "status",
         "send_email",
         "send_whatsapp",
         "created_at",
     )
 
     list_filter = (
+        "status",
         "send_email",
         "send_whatsapp",
     )
 
-    ordering = (
-        "-created_at",
-    )
+    ordering = ("-created_at",)
 
     def save_model(self, request, obj, form, change):
-
-        # Save the broadcast first
         super().save_model(request, obj, form, change)
 
-        try:
-# Temporarily disable email
-
-           # if obj.send_email:
-            #    send_email_to_all(
-             #       obj.subject,
-              #      obj.message
-               # )
-
-            if obj.send_whatsapp:
-                send_whatsapp_to_all(
-                    obj.message
-                )
-
-            self.message_user(
-                request,
-                "✅ Broadcast sent successfully!"
-            )
-
-        except Exception as e:
-
-            self.message_user(
-                request,
-                f"❌ Error sending broadcast: {e}",
-                level="ERROR"
-            )
+        self.message_user(
+            request,
+            "Broadcast saved successfully. Ready to send."
+        )
 @admin.register(PaperSubmission)
 class PaperSubmissionAdmin(admin.ModelAdmin):
 
