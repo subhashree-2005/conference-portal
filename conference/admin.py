@@ -1,5 +1,5 @@
 from django.contrib import admin
-
+from .broadcast import send_email_to_all, send_whatsapp_to_all
 from .models import (
     ConferenceSettings,
     VenueLocation,
@@ -19,8 +19,34 @@ admin.site.site_title = "Conference Admin"
 
 admin.site.index_title = "Administration Dashboard"
 
+def send_selected_broadcasts(modeladmin, request, queryset):
+
+    for obj in queryset:
+
+        try:
+            if obj.send_email:
+                send_email_to_all(obj.subject, obj.message)
+
+            if obj.send_whatsapp:
+                send_whatsapp_to_all(obj.message)
+
+            obj.status = "Sent"
+
+        except Exception:
+            obj.status = "Failed"
+
+        obj.save()
+
+    modeladmin.message_user(
+        request,
+        "Selected broadcasts processed successfully."
+    )
+
+send_selected_broadcasts.short_description = "Send selected broadcasts"
+
 @admin.register(BroadcastMessage)
 class BroadcastMessageAdmin(admin.ModelAdmin):
+    actions = [send_selected_broadcasts]
 
     list_display = (
         "subject",
