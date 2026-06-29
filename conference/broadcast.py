@@ -10,27 +10,31 @@ from .models import Registration
 
 def send_email_to_all(subject, message):
 
-    emails = list(
-        Registration.objects.exclude(email="").values_list(
-            "email",
-            flat=True
-        )
+    emails = Registration.objects.exclude(email="").values_list(
+        "email",
+        flat=True
     )
+
+    emails = list(emails)
 
     if not emails:
-        print("No registered emails found.")
         return
 
-    send_mail(
-        subject=subject,
-        message=message,
-        from_email=f"Conference Portal <{settings.EMAIL_HOST_USER}>",
-        recipient_list=emails,
-        fail_silently=False,
-    )
+    try:
+        send_mass_mail(
+            (
+                (
+                    subject,
+                    message,
+                    settings.EMAIL_HOST_USER,
+                    emails,
+                ),
+            ),
+            fail_silently=True,
+        )
 
-    print("Emails sent successfully!")
-
+    except Exception as e:
+        print(e)
 
 # ---------------- WHATSAPP ---------------- #
 
