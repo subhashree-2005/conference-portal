@@ -41,8 +41,10 @@ def send_email_to_all(subject, message):
         print("EMAIL SENT SUCCESSFULLY")
 
     except Exception as e:
-        print("EMAIL ERROR:", e)
+        import traceback
+        traceback.print_exc()
 
+    
 
 # ---------------- WHATSAPP ---------------- #
 
