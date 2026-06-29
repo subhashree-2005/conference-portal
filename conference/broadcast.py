@@ -1,7 +1,7 @@
 import requests
 
 from django.conf import settings
-from django.core.mail import send_mail
+from django.core.mail import send_mass_mail
 
 from .models import Registration
 
@@ -10,14 +10,15 @@ from .models import Registration
 
 def send_email_to_all(subject, message):
 
-    emails = Registration.objects.exclude(email="").values_list(
-        "email",
-        flat=True
+    emails = list(
+        Registration.objects.exclude(email="").values_list(
+            "email",
+            flat=True
+        )
     )
 
-    emails = list(emails)
-
     if not emails:
+        print("No registered emails found.")
         return
 
     try:
@@ -30,11 +31,14 @@ def send_email_to_all(subject, message):
                     emails,
                 ),
             ),
-            fail_silently=True,
+            fail_silently=False,
         )
 
+        print("Emails sent successfully.")
+
     except Exception as e:
-        print(e)
+        print(f"Email Error: {e}")
+
 
 # ---------------- WHATSAPP ---------------- #
 
@@ -52,7 +56,7 @@ def send_whatsapp_to_all(message):
         return
 
     url = (
-        f"https://7107.api.greenapi.com/"
+        f"https://api.green-api.com/"
         f"waInstance{settings.GREEN_API_ID_INSTANCE}/"
         f"sendMessage/"
         f"{settings.GREEN_API_TOKEN}"
@@ -62,16 +66,13 @@ def send_whatsapp_to_all(message):
 
         phone = str(phone)
 
-        # Remove spaces and symbols
         phone = phone.replace("+", "")
         phone = phone.replace("-", "")
         phone = phone.replace(" ", "")
 
-        # Remove leading zero
         if phone.startswith("0"):
             phone = phone[1:]
 
-        # Add India country code if missing
         if len(phone) == 10:
             phone = "91" + phone
 
@@ -82,10 +83,13 @@ def send_whatsapp_to_all(message):
 
         try:
 
-            response = requests.post(url, json=payload)
+            response = requests.post(
+                url,
+                json=payload,
+                timeout=20
+            )
 
             print(f"{phone} -> {response.status_code}")
-            print(response.text)
 
         except Exception as e:
 
