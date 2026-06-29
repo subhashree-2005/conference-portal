@@ -17,9 +17,13 @@ def send_email_to_all(subject, message):
         )
     )
 
+    print("EMAILS:", emails)
+
     if not emails:
-        print("No registered emails found.")
+        print("No emails found.")
         return
+
+    print("Trying to send email...")
 
     try:
         send_mass_mail(
@@ -34,10 +38,10 @@ def send_email_to_all(subject, message):
             fail_silently=False,
         )
 
-        print("Emails sent successfully.")
+        print("EMAIL SENT SUCCESSFULLY")
 
     except Exception as e:
-        print(f"Email Error: {e}")
+        print("EMAIL ERROR:", e)
 
 
 # ---------------- WHATSAPP ---------------- #
