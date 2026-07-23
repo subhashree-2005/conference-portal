@@ -1,0 +1,211 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Manage Reviewers{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/manage_reviewers.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<section class="page-header">
+
+<div class="container">
+
+<h1>Manage Reviewers</h1>
+
+<p>
+
+Assign reviewers and monitor review progress.
+
+</p>
+
+</div>
+
+</section>
+
+<section class="reviewers-section">
+
+<div class="container">
+
+<div class="row mb-4">
+
+<div class="col-lg-4">
+
+<input
+type="text"
+class="form-control"
+placeholder="Search Reviewer">
+
+</div>
+
+<div class="col-lg-3">
+
+<select class="form-select">
+
+<option>All Expertise</option>
+
+<option>Artificial Intelligence</option>
+
+<option>Cyber Security</option>
+
+<option>IoT</option>
+
+<option>Blockchain</option>
+
+</select>
+
+</div>
+
+<div class="col-lg-3">
+
+<select class="form-select">
+
+<option>All Status</option>
+
+<option>Available</option>
+
+<option>Busy</option>
+
+</select>
+
+</div>
+
+<div class="col-lg-2">
+
+<button class="btn btn-primary w-100">
+
+Search
+
+</button>
+
+</div>
+
+</div>
+
+<div class="table-responsive">
+
+<table class="table table-hover">
+
+<thead>
+
+<tr>
+
+<th>Name</th>
+
+<th>Email</th>
+
+<th>Expertise</th>
+
+<th>Assigned Papers</th>
+
+<th>Status</th>
+
+<th>Action</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr>
+
+<td>Dr. Rahul Sharma</td>
+
+<td>rahul@gmail.com</td>
+
+<td>Artificial Intelligence</td>
+
+<td>5</td>
+
+<td>
+
+<span class="badge bg-success">
+
+Available
+
+</span>
+
+</td>
+
+<td>
+
+<a href="#" class="btn btn-primary btn-sm">
+
+View
+
+</a>
+
+<a href="#" class="btn btn-success btn-sm">
+
+Assign Paper
+
+</a>
+
+<a href="#" class="btn btn-warning btn-sm">
+
+Edit
+
+</a>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td>Dr. Priya Rao</td>
+
+<td>priya@gmail.com</td>
+
+<td>Cyber Security</td>
+
+<td>8</td>
+
+<td>
+
+<span class="badge bg-danger">
+
+Busy
+
+</span>
+
+</td>
+
+<td>
+
+<a href="#" class="btn btn-primary btn-sm">
+
+View
+
+</a>
+
+<a href="#" class="btn btn-success btn-sm">
+
+Assign Paper
+
+</a>
+
+<a href="#" class="btn btn-warning btn-sm">
+
+Edit
+
+</a>
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+</div>
+
+</div>
+
+</section>
+
+{% endblock %}

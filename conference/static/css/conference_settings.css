@@ -1,0 +1,67 @@
+.settings-section{
+
+padding:100px 0;
+
+background:#f8f9fc;
+
+}
+
+.settings-card{
+
+background:#fff;
+
+padding:45px;
+
+border-radius:20px;
+
+box-shadow:0 10px 30px rgba(0,0,0,.08);
+
+}
+
+.settings-card label{
+
+font-weight:600;
+
+margin-bottom:8px;
+
+display:block;
+
+}
+
+.settings-card .form-control{
+
+padding:12px;
+
+border-radius:10px;
+
+}
+
+.settings-card textarea{
+
+resize:vertical;
+
+}
+
+.settings-card .btn{
+
+padding:12px 40px;
+
+font-weight:600;
+
+}
+
+@media(max-width:768px){
+
+.settings-section{
+
+padding:70px 0;
+
+}
+
+.settings-card{
+
+padding:25px;
+
+}
+
+}

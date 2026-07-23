@@ -1,0 +1,190 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Manage Gallery{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/manage_gallery.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<section class="page-header">
+
+<div class="container">
+
+<h1>Manage Gallery</h1>
+
+<p>
+
+Upload and manage conference gallery images.
+
+</p>
+
+</div>
+
+</section>
+
+<section class="gallery-admin">
+
+<div class="container">
+
+<div class="d-flex justify-content-between align-items-center mb-4">
+
+<h3>Gallery Images</h3>
+
+<button class="btn btn-primary">
+
+<i class="bi bi-cloud-upload-fill"></i>
+
+Upload Image
+
+</button>
+
+</div>
+
+<div class="row g-4">
+
+<div class="col-lg-3 col-md-4 col-sm-6">
+
+<div class="gallery-card">
+
+<img src="{% static 'images/gallery/gallery1.jpg' %}" alt="Gallery">
+
+<div class="gallery-content">
+
+<h6>Inauguration</h6>
+
+<p>Conference Day 1</p>
+
+<div class="d-flex justify-content-between mt-3">
+
+<a href="#" class="btn btn-sm btn-primary">
+
+Edit
+
+</a>
+
+<a href="#" class="btn btn-sm btn-danger">
+
+Delete
+
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="col-lg-3 col-md-4 col-sm-6">
+
+<div class="gallery-card">
+
+<img src="{% static 'images/gallery/gallery2.jpg' %}" alt="Gallery">
+
+<div class="gallery-content">
+
+<h6>Keynote Session</h6>
+
+<p>Technical Talk</p>
+
+<div class="d-flex justify-content-between mt-3">
+
+<a href="#" class="btn btn-sm btn-primary">
+
+Edit
+
+</a>
+
+<a href="#" class="btn btn-sm btn-danger">
+
+Delete
+
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="col-lg-3 col-md-4 col-sm-6">
+
+<div class="gallery-card">
+
+<img src="{% static 'images/gallery/gallery3.jpg' %}" alt="Gallery">
+
+<div class="gallery-content">
+
+<h6>Paper Presentation</h6>
+
+<p>Session Hall</p>
+
+<div class="d-flex justify-content-between mt-3">
+
+<a href="#" class="btn btn-sm btn-primary">
+
+Edit
+
+</a>
+
+<a href="#" class="btn btn-sm btn-danger">
+
+Delete
+
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="col-lg-3 col-md-4 col-sm-6">
+
+<div class="gallery-card">
+
+<img src="{% static 'images/gallery/gallery4.jpg' %}" alt="Gallery">
+
+<div class="gallery-content">
+
+<h6>Valedictory</h6>
+
+<p>Closing Ceremony</p>
+
+<div class="d-flex justify-content-between mt-3">
+
+<a href="#" class="btn btn-sm btn-primary">
+
+Edit
+
+</a>
+
+<a href="#" class="btn btn-sm btn-danger">
+
+Delete
+
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+{% endblock %}

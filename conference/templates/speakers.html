@@ -1,0 +1,209 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Keynote Speakers{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/speakers.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<!--==========================
+        PAGE HEADER
+===========================-->
+
+<section class="page-header">
+
+<div class="container">
+
+<h1>Keynote Speakers</h1>
+
+<p>
+
+Meet our distinguished keynote speakers from academia and industry.
+
+</p>
+
+</div>
+
+</section>
+
+<!--==========================
+        SPEAKERS
+===========================-->
+
+<section class="speaker-page">
+
+<div class="container">
+
+<div class="row g-4">
+
+{% for i in "12345678" %}
+
+<div class="col-lg-3 col-md-6">
+
+<div class="speaker-card">
+
+<img src="{% static 'images/speakers/speaker.png' %}">
+
+<div class="speaker-body">
+
+<h4>Prof. John Doe</h4>
+
+<h6>Massachusetts Institute of Technology</h6>
+
+<p>
+
+Artificial Intelligence • Machine Learning • Robotics
+
+</p>
+
+<div class="speaker-social">
+
+<a href="#"><i class="bi bi-globe"></i></a>
+
+<a href="#"><i class="bi bi-linkedin"></i></a>
+
+<a href="#"><i class="bi bi-twitter-x"></i></a>
+
+<a href="#"><i class="bi bi-envelope-fill"></i></a>
+
+</div>
+
+<button
+
+class="btn btn-primary mt-3 w-100"
+
+data-bs-toggle="modal"
+
+data-bs-target="#speakerModal">
+
+View Profile
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+{% endfor %}
+
+</div>
+
+</div>
+
+</section>
+
+<!--==========================
+        MODAL
+===========================-->
+
+<div class="modal fade"
+
+id="speakerModal"
+
+tabindex="-1">
+
+<div class="modal-dialog modal-lg">
+
+<div class="modal-content">
+
+<div class="modal-header">
+
+<h5>
+
+Speaker Profile
+
+</h5>
+
+<button
+
+class="btn-close"
+
+data-bs-dismiss="modal">
+
+</button>
+
+</div>
+
+<div class="modal-body">
+
+<div class="row">
+
+<div class="col-md-4">
+
+<img
+
+src="{% static 'images/speakers/speaker.png' %}"
+
+class="img-fluid rounded">
+
+</div>
+
+<div class="col-md-8">
+
+<h3>
+
+Prof. John Doe
+
+</h3>
+
+<h6>
+
+Massachusetts Institute of Technology
+
+</h6>
+
+<hr>
+
+<p>
+
+Research Area
+
+</p>
+
+<ul>
+
+<li>Artificial Intelligence</li>
+
+<li>Machine Learning</li>
+
+<li>Deep Learning</li>
+
+<li>Computer Vision</li>
+
+<li>Robotics</li>
+
+</ul>
+
+<hr>
+
+<p>
+
+Biography
+
+</p>
+
+<p>
+
+Detailed speaker profile will be editable
+from Django Admin later.
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+{% endblock %}

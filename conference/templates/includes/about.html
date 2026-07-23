@@ -1,0 +1,135 @@
+{% load static %}
+
+<section class="about-section py-5" id="about">
+
+<div class="container">
+
+<div class="row align-items-center gy-5">
+
+<div class="col-lg-6">
+
+<img
+src="{% static 'images/about/about.jpg' %}"
+class="img-fluid rounded-4 shadow-lg w-100">
+
+</div>
+
+<div class="col-lg-6">
+
+<span class="section-subtitle">
+ABOUT THE CONFERENCE
+</span>
+
+<h2 class="section-title mt-2">
+
+{{ settings.conference_name }}
+
+</h2>
+
+<p class="lead mt-4">
+
+{{ settings.about }}
+
+</p>
+
+<p>
+
+The conference serves as a global platform where researchers,
+scientists,
+industry experts,
+faculty members,
+and students exchange innovative ideas,
+present cutting-edge research,
+and establish international collaborations.
+
+</p>
+
+<div class="row mt-4">
+
+<div class="col-md-6 mb-3">
+
+<div class="feature-box">
+
+<i class="bi bi-globe2"></i>
+
+<div>
+
+<h5>International Speakers</h5>
+
+<p>Experts from worldwide universities.</p>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="col-md-6 mb-3">
+
+<div class="feature-box">
+
+<i class="bi bi-journal-check"></i>
+
+<div>
+
+<h5>Peer Review</h5>
+
+<p>Double blind review process.</p>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="col-md-6 mb-3">
+
+<div class="feature-box">
+
+<i class="bi bi-award-fill"></i>
+
+<div>
+
+<h5>Best Paper Awards</h5>
+
+<p>Special awards for quality research.</p>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="col-md-6 mb-3">
+
+<div class="feature-box">
+
+<i class="bi bi-people-fill"></i>
+
+<div>
+
+<h5>Networking</h5>
+
+<p>Meet professors and industry leaders.</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<a href="/register/" class="btn btn-primary btn-lg mt-3">
+
+Register Now
+
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</section>

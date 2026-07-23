@@ -1,0 +1,227 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+
+Registration Successful
+
+{% endblock %}
+
+{% block extra_css %}
+
+<link rel="stylesheet" href="{% static 'css/registration_success.css' %}">
+
+{% endblock %}
+
+{% block content %}
+
+<!-- ==========================================
+            SUCCESS HERO
+========================================== -->
+
+<section class="success-hero">
+
+<div class="container">
+
+<div class="row justify-content-center">
+
+<div class="col-lg-8">
+
+<div class="success-card text-center">
+
+<div class="success-icon">
+
+<i class="bi bi-check-circle-fill"></i>
+
+</div>
+
+<h1>
+
+Registration Successful!
+
+</h1>
+
+<p>
+
+Thank you for registering for the conference.
+
+Your registration has been received successfully.
+
+</p>
+
+<div class="alert alert-success mt-4">
+
+<strong>What's Next?</strong>
+
+<br><br>
+
+✔ You will receive a confirmation email shortly.
+
+<br>
+
+✔ Keep checking your email for conference updates.
+
+<br>
+
+✔ Join us on the conference dates.
+
+</div>
+
+<div class="mt-4">
+
+<a href="/"
+
+class="btn btn-primary btn-lg me-3">
+
+<i class="bi bi-house-fill me-2"></i>
+
+Back to Home
+
+</a>
+
+<a href="/submit-paper/"
+
+class="btn btn-success btn-lg">
+
+<i class="bi bi-upload me-2"></i>
+
+Submit Paper
+
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+<!-- ==========================================
+            CONFERENCE INFORMATION
+========================================== -->
+
+<section class="py-5 bg-light">
+
+<div class="container">
+
+<div class="text-center mb-5">
+
+<h2>
+
+Conference Information
+
+</h2>
+
+<p class="text-muted">
+
+Here are a few important reminders before the conference.
+
+</p>
+
+</div>
+
+<div class="row g-4">
+
+<div class="col-lg-4">
+
+<div class="info-card">
+
+<i class="bi bi-calendar-event-fill text-primary"></i>
+
+<h4>
+
+Conference Date
+
+</h4>
+
+<p>
+
+{{ settings.conference_date }}
+
+</p>
+
+</div>
+
+</div>
+
+<div class="col-lg-4">
+
+<div class="info-card">
+
+<i class="bi bi-geo-alt-fill text-danger"></i>
+
+<h4>
+
+Venue
+
+</h4>
+
+<p>
+
+{{ settings.address }}
+
+</p>
+
+</div>
+
+</div>
+
+<div class="col-lg-4">
+
+<div class="info-card">
+
+<i class="bi bi-envelope-fill text-success"></i>
+
+<h4>
+
+Need Help?
+
+</h4>
+
+<p>
+
+{{ settings.email }}
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ==========================================
+                FOOTER
+========================================== -->
+
+<section class="bg-dark text-white py-4">
+
+<div class="container text-center">
+
+<p class="mb-0">
+
+© {{ settings.conference_name }}
+
+|
+
+Registration Successful
+
+|
+
+All Rights Reserved.
+
+</p>
+
+</div>
+
+</section>
+
+{% endblock %}

@@ -1,0 +1,366 @@
+/*==================================================
+                ERROR PAGE
+==================================================*/
+
+.error-section{
+
+min-height:80vh;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+background:linear-gradient(135deg,#0d6efd,#003b8b);
+
+padding:80px 0;
+
+}
+
+.error-box{
+
+background:#fff;
+
+padding:60px 40px;
+
+border-radius:20px;
+
+box-shadow:0 20px 50px rgba(0,0,0,.15);
+
+}
+
+.error-code{
+
+font-size:140px;
+
+font-weight:800;
+
+color:#0d6efd;
+
+line-height:1;
+
+margin-bottom:20px;
+
+}
+
+.error-box h2{
+
+font-size:38px;
+
+font-weight:700;
+
+margin-bottom:20px;
+
+color:#222;
+
+}
+
+.error-box p{
+
+font-size:18px;
+
+color:#666;
+
+line-height:1.8;
+
+max-width:650px;
+
+margin:auto;
+
+margin-bottom:30px;
+
+}
+
+.error-box .btn{
+
+padding:14px 35px;
+
+font-size:17px;
+
+font-weight:600;
+
+border-radius:10px;
+
+transition:.3s;
+
+}
+
+.error-box .btn:hover{
+
+transform:translateY(-4px);
+
+box-shadow:0 10px 25px rgba(13,110,253,.25);
+
+}
+/*==================================================
+                HELP CARDS
+==================================================*/
+
+.error-section-2{
+
+padding:80px 0;
+
+background:#f8f9fa;
+
+}
+
+.error-card{
+
+background:#fff;
+
+padding:35px 25px;
+
+border-radius:18px;
+
+text-align:center;
+
+height:100%;
+
+transition:.35s;
+
+box-shadow:0 10px 25px rgba(0,0,0,.08);
+
+}
+
+.error-card:hover{
+
+transform:translateY(-8px);
+
+box-shadow:0 20px 40px rgba(0,0,0,.15);
+
+}
+
+.error-card i{
+
+font-size:55px;
+
+margin-bottom:20px;
+
+transition:.3s;
+
+}
+
+.error-card:hover i{
+
+transform:scale(1.12);
+
+}
+
+.error-card h4{
+
+font-weight:700;
+
+color:#0d3f88;
+
+margin-bottom:15px;
+
+}
+
+.error-card p{
+
+color:#666;
+
+line-height:1.7;
+
+margin-bottom:0;
+
+}
+
+
+/*==================================================
+                ANIMATION
+==================================================*/
+
+.error-box,
+
+.error-card{
+
+animation:fadeUp .8s ease;
+
+}
+
+@keyframes fadeUp{
+
+from{
+
+opacity:0;
+
+transform:translateY(40px);
+
+}
+
+to{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+}
+/*==================================================
+                RESPONSIVE
+==================================================*/
+
+@media(max-width:991px){
+
+.error-section{
+
+padding:70px 0;
+
+}
+
+.error-box{
+
+padding:45px 30px;
+
+}
+
+.error-code{
+
+font-size:110px;
+
+}
+
+.error-box h2{
+
+font-size:32px;
+
+}
+
+}
+
+@media(max-width:768px){
+
+.error-section{
+
+padding:60px 0;
+
+text-align:center;
+
+}
+
+.error-box{
+
+padding:35px 25px;
+
+}
+
+.error-code{
+
+font-size:90px;
+
+}
+
+.error-box h2{
+
+font-size:28px;
+
+}
+
+.error-box p{
+
+font-size:16px;
+
+}
+
+.error-box .btn{
+
+display:block;
+
+width:100%;
+
+margin-bottom:15px;
+
+}
+
+.error-card{
+
+margin-bottom:25px;
+
+}
+
+}
+
+@media(max-width:576px){
+
+.error-section{
+
+padding:50px 0;
+
+}
+
+.error-box{
+
+padding:25px 20px;
+
+}
+
+.error-code{
+
+font-size:72px;
+
+}
+
+.error-box h2{
+
+font-size:24px;
+
+}
+
+.error-box p{
+
+font-size:15px;
+
+line-height:1.6;
+
+}
+
+.error-card{
+
+padding:25px 20px;
+
+}
+
+.error-card i{
+
+font-size:42px;
+
+}
+
+.error-card h4{
+
+font-size:20px;
+
+}
+
+}
+
+
+/*==================================================
+                FOOTER
+==================================================*/
+
+footer{
+
+background:#0d3f88;
+
+color:#fff;
+
+padding:30px 0;
+
+}
+
+footer p{
+
+margin:0;
+
+font-size:15px;
+
+}
+
+
+/*==================================================
+                    END
+==================================================*/

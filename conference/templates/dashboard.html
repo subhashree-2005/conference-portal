@@ -1,0 +1,311 @@
+{% extends "dashboard/base_dashboard.html" %}
+
+{% block title %}
+Dashboard
+{% endblock %}
+
+{% block content %}
+
+<div class="container-fluid">
+
+    <!-- Page Title -->
+
+    <div class="d-flex justify-content-between align-items-center mb-4">
+
+        <div>
+
+            <h2 class="fw-bold">
+
+                Dashboard
+
+            </h2>
+
+            <p class="text-muted">
+
+                Conference Management Overview
+
+            </p>
+
+        </div>
+
+    </div>
+
+    <!-- Statistics Cards -->
+
+    <div class="row g-4">
+
+        <div class="col-xl-3 col-md-6">
+
+            <div class="dashboard-card">
+
+                <div>
+
+                    <h6>Total Papers</h6>
+
+                    <h2>{{ paper_count }}</h2>
+
+                </div>
+
+                <i class="bi bi-file-earmark-text-fill"></i>
+
+            </div>
+
+        </div>
+
+        <div class="col-xl-3 col-md-6">
+
+            <div class="dashboard-card success">
+
+                <div>
+
+                    <h6>Accepted</h6>
+
+                    <h2>{{ accepted }}</h2>
+
+                </div>
+
+                <i class="bi bi-check-circle-fill"></i>
+
+            </div>
+
+        </div>
+
+        <div class="col-xl-3 col-md-6">
+
+            <div class="dashboard-card warning">
+
+                <div>
+
+                    <h6>Under Review</h6>
+
+                    <h2>{{ review }}</h2>
+
+                </div>
+
+                <i class="bi bi-search"></i>
+
+            </div>
+
+        </div>
+
+        <div class="col-xl-3 col-md-6">
+
+            <div class="dashboard-card danger">
+
+                <div>
+
+                    <h6>Rejected</h6>
+
+                    <h2>{{ rejected }}</h2>
+
+                </div>
+
+                <i class="bi bi-x-circle-fill"></i>
+
+            </div>
+
+        </div>
+
+        <div class="col-xl-3 col-md-6">
+
+            <div class="dashboard-card">
+
+                <div>
+
+                    <h6>Registrations</h6>
+
+                    <h2>{{ registration_count }}</h2>
+
+                </div>
+
+                <i class="bi bi-people-fill"></i>
+
+            </div>
+
+        </div>
+
+        <div class="col-xl-3 col-md-6">
+
+            <div class="dashboard-card success">
+
+                <div>
+
+                    <h6>Paid</h6>
+
+                    <h2>{{ paid_registration }}</h2>
+
+                </div>
+
+                <i class="bi bi-credit-card-fill"></i>
+
+            </div>
+
+        </div>
+
+        <div class="col-xl-3 col-md-6">
+
+            <div class="dashboard-card warning">
+
+                <div>
+
+                    <h6>Pending</h6>
+
+                    <h2>{{ pending_registration }}</h2>
+
+                </div>
+
+                <i class="bi bi-hourglass-split"></i>
+
+            </div>
+
+        </div>
+
+        <div class="col-xl-3 col-md-6">
+
+            <div class="dashboard-card primary">
+
+                <div>
+
+                    <h6>Announcements</h6>
+
+                    <h2>{{ announcements|length }}</h2>
+
+                </div>
+
+                <i class="bi bi-megaphone-fill"></i>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Recent Data -->
+
+    <div class="row mt-5">
+
+        <!-- Recent Papers -->
+
+        <div class="col-lg-6">
+
+            <div class="table-card">
+
+                <h5 class="mb-3">
+
+                    Recent Paper Submissions
+
+                </h5>
+
+                <table class="table table-hover">
+
+                    <thead>
+
+                        <tr>
+
+                            <th>Author</th>
+
+                            <th>Status</th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody>
+
+                    {% for paper in papers|slice:":5" %}
+
+                        <tr>
+
+                            <td>{{ paper.author_name }}</td>
+
+                            <td>{{ paper.status }}</td>
+
+                        </tr>
+
+                    {% empty %}
+
+                        <tr>
+
+                            <td colspan="2">
+
+                                No Papers
+
+                            </td>
+
+                        </tr>
+
+                    {% endfor %}
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+
+        <!-- Recent Registrations -->
+
+        <div class="col-lg-6">
+
+            <div class="table-card">
+
+                <h5 class="mb-3">
+
+                    Recent Registrations
+
+                </h5>
+
+                <table class="table table-hover">
+
+                    <thead>
+
+                        <tr>
+
+                            <th>Name</th>
+
+                            <th>Status</th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody>
+
+                    {% for reg in registrations|slice:":5" %}
+
+                        <tr>
+
+                            <td>{{ reg.full_name }}</td>
+
+                            <td>{{ reg.payment_status }}</td>
+
+                        </tr>
+
+                    {% empty %}
+
+                        <tr>
+
+                            <td colspan="2">
+
+                                No Registrations
+
+                            </td>
+
+                        </tr>
+
+                    {% endfor %}
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

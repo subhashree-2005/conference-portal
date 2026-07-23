@@ -1,0 +1,200 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Manage Committee{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/manage_committee.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<section class="page-header">
+
+<div class="container">
+
+<h1>Manage Committee</h1>
+
+<p>
+
+Add, edit and manage organizing committee members.
+
+</p>
+
+</div>
+
+</section>
+
+<section class="committee-section">
+
+<div class="container">
+
+<div class="d-flex justify-content-between align-items-center mb-4">
+
+<h3>Committee Members</h3>
+
+<button class="btn btn-primary">
+
+<i class="bi bi-plus-circle"></i>
+
+Add Member
+
+</button>
+
+</div>
+
+<div class="table-responsive">
+
+<table class="table table-hover">
+
+<thead>
+
+<tr>
+
+<th>Photo</th>
+
+<th>Name</th>
+
+<th>Designation</th>
+
+<th>Department</th>
+
+<th>Email</th>
+
+<th>Display Order</th>
+
+<th>Action</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr>
+
+<td>
+
+<img src="{% static 'images/team/person1.jpg' %}"
+
+class="member-img">
+
+</td>
+
+<td>
+
+Prof. A. Kumar
+
+</td>
+
+<td>
+
+General Chair
+
+</td>
+
+<td>
+
+Computer Science
+
+</td>
+
+<td>
+
+chair@conference.org
+
+</td>
+
+<td>
+
+1
+
+</td>
+
+<td>
+
+<a href="#" class="btn btn-sm btn-primary">
+
+Edit
+
+</a>
+
+<a href="#" class="btn btn-sm btn-danger">
+
+Delete
+
+</a>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+
+<img src="{% static 'images/team/person2.jpg' %}"
+
+class="member-img">
+
+</td>
+
+<td>
+
+Dr. Priya Sharma
+
+</td>
+
+<td>
+
+Program Chair
+
+</td>
+
+<td>
+
+Information Technology
+
+</td>
+
+<td>
+
+program@conference.org
+
+</td>
+
+<td>
+
+2
+
+</td>
+
+<td>
+
+<a href="#" class="btn btn-sm btn-primary">
+
+Edit
+
+</a>
+
+<a href="#" class="btn btn-sm btn-danger">
+
+Delete
+
+</a>
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+</div>
+
+</div>
+
+</section>
+
+{% endblock %}

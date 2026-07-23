@@ -1,0 +1,278 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Admin Dashboard{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/admin_dashboard.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<section class="page-header">
+
+<div class="container">
+
+<h1>Admin Dashboard</h1>
+
+<p>
+
+Manage the complete conference from one place.
+
+</p>
+
+</div>
+
+</section>
+
+<section class="admin-dashboard">
+
+<div class="container">
+
+<div class="row g-4">
+
+<div class="col-lg-3 col-md-6">
+
+<div class="dashboard-card">
+
+<i class="bi bi-file-earmark-text-fill"></i>
+
+<h2>128</h2>
+
+<p>Total Papers</p>
+
+</div>
+
+</div>
+
+<div class="col-lg-3 col-md-6">
+
+<div class="dashboard-card">
+
+<i class="bi bi-people-fill"></i>
+
+<h2>315</h2>
+
+<p>Registered Users</p>
+
+</div>
+
+</div>
+
+<div class="col-lg-3 col-md-6">
+
+<div class="dashboard-card">
+
+<i class="bi bi-person-badge-fill"></i>
+
+<h2>42</h2>
+
+<p>Reviewers</p>
+
+</div>
+
+</div>
+
+<div class="col-lg-3 col-md-6">
+
+<div class="dashboard-card">
+
+<i class="bi bi-check-circle-fill"></i>
+
+<h2>76</h2>
+
+<p>Accepted Papers</p>
+
+</div>
+
+</div>
+
+</div>
+
+<hr class="my-5">
+
+<h3 class="mb-4">
+
+Quick Actions
+
+</h3>
+
+<div class="row g-4">
+
+<div class="col-lg-3 col-md-4">
+
+<a href="#" class="action-card">
+
+<i class="bi bi-file-earmark-plus"></i>
+
+<span>Manage Papers</span>
+
+</a>
+
+</div>
+
+<div class="col-lg-3 col-md-4">
+
+<a href="#" class="action-card">
+
+<i class="bi bi-people"></i>
+
+<span>Manage Users</span>
+
+</a>
+
+</div>
+
+<div class="col-lg-3 col-md-4">
+
+<a href="#" class="action-card">
+
+<i class="bi bi-person-workspace"></i>
+
+<span>Manage Reviewers</span>
+
+</a>
+
+</div>
+
+<div class="col-lg-3 col-md-4">
+
+<a href="#" class="action-card">
+
+<i class="bi bi-megaphone-fill"></i>
+
+<span>Broadcast</span>
+
+</a>
+
+</div>
+
+<div class="col-lg-3 col-md-4">
+
+<a href="#" class="action-card">
+
+<i class="bi bi-calendar-event"></i>
+
+<span>Important Dates</span>
+
+</a>
+
+</div>
+
+<div class="col-lg-3 col-md-4">
+
+<a href="#" class="action-card">
+
+<i class="bi bi-mic-fill"></i>
+
+<span>Speakers</span>
+
+</a>
+
+</div>
+
+<div class="col-lg-3 col-md-4">
+
+<a href="#" class="action-card">
+
+<i class="bi bi-images"></i>
+
+<span>Gallery</span>
+
+</a>
+
+</div>
+
+<div class="col-lg-3 col-md-4">
+
+<a href="#" class="action-card">
+
+<i class="bi bi-gear-fill"></i>
+
+<span>Conference Settings</span>
+
+</a>
+
+</div>
+
+</div>
+
+<hr class="my-5">
+
+<h3 class="mb-4">
+
+Recent Activity
+
+</h3>
+
+<div class="table-responsive">
+
+<table class="table table-hover">
+
+<thead>
+
+<tr>
+
+<th>Date</th>
+
+<th>User</th>
+
+<th>Activity</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr>
+
+<td>20 Jul 2027</td>
+
+<td>John Smith</td>
+
+<td>Submitted a new paper.</td>
+
+</tr>
+
+<tr>
+
+<td>20 Jul 2027</td>
+
+<td>Admin</td>
+
+<td>Assigned reviewer.</td>
+
+</tr>
+
+<tr>
+
+<td>21 Jul 2027</td>
+
+<td>Reviewer 03</td>
+
+<td>Completed review.</td>
+
+</tr>
+
+<tr>
+
+<td>21 Jul 2027</td>
+
+<td>Admin</td>
+
+<td>Published announcement.</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+</div>
+
+</div>
+
+</section>
+
+{% endblock %}

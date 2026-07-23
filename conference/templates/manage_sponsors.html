@@ -1,0 +1,288 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Manage Sponsors{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/manage_sponsors.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<section class="page-header">
+
+<div class="container">
+
+<h1>Manage Sponsors</h1>
+
+<p>
+
+Manage conference sponsors and partner organizations.
+
+</p>
+
+</div>
+
+</section>
+
+<section class="sponsors-section">
+
+<div class="container">
+
+<div class="d-flex justify-content-between align-items-center mb-4">
+
+<h3>Sponsors</h3>
+
+<button class="btn btn-primary">
+
+<i class="bi bi-plus-circle"></i>
+
+Add Sponsor
+
+</button>
+
+</div>
+
+<div class="table-responsive">
+
+<table class="table table-hover">
+
+<thead>
+
+<tr>
+
+<th>Logo</th>
+
+<th>Sponsor</th>
+
+<th>Category</th>
+
+<th>Website</th>
+
+<th>Status</th>
+
+<th>Display Order</th>
+
+<th>Action</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr>
+
+<td>
+
+<img src="{% static 'images/sponsors/google.png' %}"
+
+class="sponsor-logo">
+
+</td>
+
+<td>
+
+Google
+
+</td>
+
+<td>
+
+Platinum
+
+</td>
+
+<td>
+
+google.com
+
+</td>
+
+<td>
+
+<span class="badge bg-success">
+
+Active
+
+</span>
+
+</td>
+
+<td>
+
+1
+
+</td>
+
+<td>
+
+<a href="#" class="btn btn-sm btn-primary">
+
+Edit
+
+</a>
+
+<a href="#" class="btn btn-sm btn-warning">
+
+Disable
+
+</a>
+
+<a href="#" class="btn btn-sm btn-danger">
+
+Delete
+
+</a>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+
+<img src="{% static 'images/sponsors/microsoft.png' %}"
+
+class="sponsor-logo">
+
+</td>
+
+<td>
+
+Microsoft
+
+</td>
+
+<td>
+
+Gold
+
+</td>
+
+<td>
+
+microsoft.com
+
+</td>
+
+<td>
+
+<span class="badge bg-success">
+
+Active
+
+</span>
+
+</td>
+
+<td>
+
+2
+
+</td>
+
+<td>
+
+<a href="#" class="btn btn-sm btn-primary">
+
+Edit
+
+</a>
+
+<a href="#" class="btn btn-sm btn-warning">
+
+Disable
+
+</a>
+
+<a href="#" class="btn btn-sm btn-danger">
+
+Delete
+
+</a>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+
+<img src="{% static 'images/sponsors/nvidia.png' %}"
+
+class="sponsor-logo">
+
+</td>
+
+<td>
+
+NVIDIA
+
+</td>
+
+<td>
+
+Silver
+
+</td>
+
+<td>
+
+nvidia.com
+
+</td>
+
+<td>
+
+<span class="badge bg-success">
+
+Active
+
+</span>
+
+</td>
+
+<td>
+
+3
+
+</td>
+
+<td>
+
+<a href="#" class="btn btn-sm btn-primary">
+
+Edit
+
+</a>
+
+<a href="#" class="btn btn-sm btn-warning">
+
+Disable
+
+</a>
+
+<a href="#" class="btn btn-sm btn-danger">
+
+Delete
+
+</a>
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+</div>
+
+</div>
+
+</section>
+
+{% endblock %}

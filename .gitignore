@@ -1,0 +1,32 @@
+# --- Secrets / environment ---
+.env
+*.env
+
+# --- Python ---
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+.venv/
+venv/
+env/
+
+# --- Django ---
+db.sqlite3
+db.sqlite3-journal
+staticfiles/
+
+# User-submitted content: never commit real people's papers, receipts,
+# or auto-added gallery uploads. Design assets you added yourself (logo,
+# hero, website, speakers folders) are fine to keep versioned.
+/media/papers/
+/media/payment_receipts/
+
+# --- Editors / OS ---
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# --- Logs ---
+*.log

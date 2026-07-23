@@ -1,0 +1,1442 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+{{ settings.conference_name|default:"Conference Portal" }}
+{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/home.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<!-- ========================================================= -->
+<!-- HERO SECTION -->
+<!-- ========================================================= -->
+
+<section class="hero-section">
+
+    {% if settings.hero_image %}
+        <img src="{{ settings.hero_image.url }}" class="hero-bg" alt="Hero Image">
+    {% endif %}
+
+    <div class="hero-overlay"></div>
+
+    <div class="container">
+
+        <div class="row align-items-center">
+
+            <!-- Left Logo -->
+
+            <div class="col-lg-2 text-center">
+
+                {% if settings.organization_logo %}
+
+                    <img
+                        src="{{ settings.organization_logo.url }}"
+                        class="hero-logo img-fluid"
+                        alt="Organization Logo">
+
+                {% endif %}
+
+            </div>
+
+            <!-- Center Content -->
+
+            <div class="col-lg-8 text-center">
+
+                <h5 class="hero-small">
+
+                    {{ settings.organization }}
+
+                </h5>
+
+                <h1 class="hero-title">
+
+                    {{ settings.hero_heading }}
+
+                </h1>
+
+                <p class="hero-subtitle">
+
+                    {{ settings.hero_subtitle }}
+
+                </p>
+
+                <div class="mt-4">
+
+                    <a href="{% url 'register' %}"
+                       class="btn btn-warning btn-lg me-3">
+
+                        Register Now
+
+                    </a>
+
+                    <a href="{% url 'submit_paper' %}"
+                       class="btn btn-outline-light btn-lg">
+
+                        Submit Paper
+
+                    </a>
+
+                </div>
+
+            </div>
+
+            <!-- Right Logo -->
+
+            <div class="col-lg-2 text-center">
+
+                {% if settings.conference_logo %}
+
+                    <img
+                        src="{{ settings.conference_logo.url }}"
+                        class="hero-logo img-fluid"
+                        alt="Conference Logo">
+
+                {% endif %}
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ========================================================= -->
+<!-- LIVE STATISTICS -->
+<!-- ========================================================= -->
+
+<section class="stats-section py-5">
+
+    <div class="container">
+
+        <div class="row g-4">
+
+            {% for stat in statistics %}
+
+            <div class="col-lg-3 col-md-6">
+
+                <div class="stat-box text-center">
+
+                    <i class="{{ stat.icon }} display-4 text-primary mb-3"></i>
+
+                    <h2
+                        class="counter"
+                        data-target="{{ stat.value }}">
+
+                        {{ stat.value }}
+
+                    </h2>
+
+                    <p>
+
+                        {{ stat.title }}
+
+                    </p>
+
+                </div>
+
+            </div>
+
+            {% empty %}
+
+            <div class="col-12 text-center">
+
+                <h5>
+
+                    Statistics will appear here.
+
+                </h5>
+
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ========================================================= -->
+<!-- ABOUT CONFERENCE -->
+<!-- ========================================================= -->
+
+<section class="about-section py-5">
+
+    <div class="container">
+
+        <div class="row align-items-center gy-5">
+
+            <!-- IMAGE -->
+
+            <div class="col-lg-6">
+
+                {% if about.image %}
+
+                    <img
+                        src="{{ about.image.url }}"
+                        class="img-fluid rounded-4 shadow"
+                        alt="Conference">
+
+                {% else %}
+
+                    <img
+                        src="{% static 'images/about/about.jpg' %}"
+                        class="img-fluid rounded-4 shadow"
+                        alt="Conference">
+
+                {% endif %}
+
+            </div>
+
+            <!-- CONTENT -->
+
+            <div class="col-lg-6">
+
+                <span class="section-tag">
+
+                    ABOUT CONFERENCE
+
+                </span>
+
+                <h2 class="section-title mt-3">
+
+                    {{ about.title }}
+
+                </h2>
+
+                <p class="section-description">
+
+                    {{ about.description }}
+
+                </p>
+
+                <div class="row mt-5">
+
+                    <div class="col-md-6">
+
+                        <div class="feature-box">
+
+                            <i class="bi bi-lightbulb-fill"></i>
+
+                            <div>
+
+                                <h5>
+
+                                    Vision
+
+                                </h5>
+
+                                <p>
+
+                                    {{ about.vision }}
+
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-6">
+
+                        <div class="feature-box">
+
+                            <i class="bi bi-bullseye"></i>
+
+                            <div>
+
+                                <h5>
+
+                                    Mission
+
+                                </h5>
+
+                                <p>
+
+                                    {{ about.mission }}
+
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ========================================================= -->
+<!-- WHY ATTEND -->
+<!-- ========================================================= -->
+
+<section class="why-section py-5 bg-light">
+
+    <div class="container">
+
+        <div class="text-center mb-5">
+
+            <span class="section-tag">
+
+                WHY ATTEND
+
+            </span>
+
+            <h2 class="section-title mt-3">
+
+                Why Attend This Conference?
+
+            </h2>
+
+            <p class="section-description">
+
+                Present your research, learn from experts,
+                and connect with researchers from around the world.
+
+            </p>
+
+        </div>
+
+        <div class="row g-4">
+
+            <div class="col-lg-3 col-md-6">
+
+                <div class="why-card">
+
+                    <i class="bi bi-lightbulb-fill"></i>
+
+                    <h4>
+
+                        Latest Research
+
+                    </h4>
+
+                    <p>
+
+                        Explore innovative technologies and ideas.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="col-lg-3 col-md-6">
+
+                <div class="why-card">
+
+                    <i class="bi bi-people-fill"></i>
+
+                    <h4>
+
+                        Networking
+
+                    </h4>
+
+                    <p>
+
+                        Meet professors, students and industry experts.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="col-lg-3 col-md-6">
+
+                <div class="why-card">
+
+                    <i class="bi bi-award-fill"></i>
+
+                    <h4>
+
+                        Recognition
+
+                    </h4>
+
+                    <p>
+
+                        Publish your work and receive recognition.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="col-lg-3 col-md-6">
+
+                <div class="why-card">
+
+                    <i class="bi bi-globe2"></i>
+
+                    <h4>
+
+                        Global Exposure
+
+                    </h4>
+
+                    <p>
+
+                        Collaborate with researchers worldwide.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ========================================================= -->
+<!-- IMPORTANT DATES -->
+<!-- ========================================================= -->
+
+<section id="dates" class="dates-section py-5">
+
+    <div class="container">
+
+        <div class="text-center mb-5">
+
+            <span class="section-tag">
+
+                IMPORTANT DATES
+
+            </span>
+
+            <h2 class="section-title mt-3">
+
+                Conference Timeline
+
+            </h2>
+
+            <p class="section-description">
+
+                Keep track of all important conference deadlines.
+
+            </p>
+
+        </div>
+
+        <div class="timeline">
+
+            {% for item in important_dates %}
+
+            <div class="timeline-item">
+
+                <div class="timeline-dot"></div>
+
+                <div class="timeline-content">
+
+                    <h4>
+
+                        {{ item.event }}
+
+                    </h4>
+
+                    <h6>
+
+                        {{ item.date|date:"d F Y" }}
+
+                    </h6>
+
+                    {% if item.description %}
+
+                    <p>
+
+                        {{ item.description }}
+
+                    </p>
+
+                    {% endif %}
+
+                </div>
+
+            </div>
+
+            {% empty %}
+
+            <div class="text-center">
+
+                <h5>
+
+                    Important dates will be announced soon.
+
+                </h5>
+
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ========================================================= -->
+<!-- CONFERENCE TRACKS -->
+<!-- ========================================================= -->
+
+<section id="tracks" class="tracks-section py-5 bg-light">
+
+    <div class="container">
+
+        <div class="text-center mb-5">
+
+            <span class="section-tag">
+
+                CALL FOR PAPERS
+
+            </span>
+
+            <h2 class="section-title mt-3">
+
+                Conference Tracks
+
+            </h2>
+
+            <p class="section-description">
+
+                Submit your research paper under one of the following conference tracks.
+
+            </p>
+
+        </div>
+
+        <div class="row g-4">
+
+            {% for track in tracks %}
+
+            <div class="col-lg-4 col-md-6">
+
+                <div class="track-card h-100">
+
+                    {% if track.icon %}
+
+                        <i class="{{ track.icon }}"></i>
+
+                    {% else %}
+
+                        <i class="bi bi-cpu-fill"></i>
+
+                    {% endif %}
+
+                    <h4 class="mt-3">
+
+                        {{ track.name }}
+
+                    </h4>
+
+                    <p>
+
+                        {{ track.description }}
+
+                    </p>
+
+                </div>
+
+            </div>
+
+            {% empty %}
+
+            <div class="col-12">
+
+                <div class="alert alert-info text-center">
+
+                    Conference tracks will be updated soon.
+
+                </div>
+
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ========================================================= -->
+<!-- REGISTRATION CTA -->
+<!-- ========================================================= -->
+
+<section class="py-5 text-center">
+
+    <div class="container">
+
+        <h2>
+
+            Ready to Participate?
+
+        </h2>
+
+        <p class="lead">
+
+            Register today and become part of an international research community.
+
+        </p>
+
+        <a
+            href="{% url 'register' %}"
+            class="btn btn-primary btn-lg me-3">
+
+            Register Now
+
+        </a>
+
+        <a
+            href="{% url 'submit_paper' %}"
+            class="btn btn-outline-primary btn-lg">
+
+            Submit Paper
+
+        </a>
+
+    </div>
+
+</section>
+
+<!-- ========================================================= -->
+<!-- KEYNOTE SPEAKERS -->
+<!-- ========================================================= -->
+
+<section id="speakers" class="speakers-section py-5">
+
+    <div class="container">
+
+        <div class="text-center mb-5">
+
+            <span class="section-tag">
+
+                KEYNOTE SPEAKERS
+
+            </span>
+
+            <h2 class="section-title mt-3">
+
+                Meet Our Distinguished Speakers
+
+            </h2>
+
+            <p class="section-description">
+
+                Learn from internationally recognized researchers,
+                academicians and industry experts.
+
+            </p>
+
+        </div>
+
+        <div class="row g-4">
+
+            {% for speaker in speakers %}
+
+            <div class="col-lg-3 col-md-6">
+
+                <div class="speaker-card h-100 shadow">
+
+                    {% if speaker.photo %}
+
+                    <img
+                        src="{{ speaker.photo.url }}"
+                        class="speaker-img"
+                        alt="{{ speaker.name }}">
+
+                    {% else %}
+
+                    <img
+                        src="{% static 'images/default-speaker.png' %}"
+                        class="speaker-img"
+                        alt="Speaker">
+
+                    {% endif %}
+
+                    <div class="speaker-body">
+
+                        <h4>
+
+                            {{ speaker.name }}
+
+                        </h4>
+
+                        <h6>
+
+                            {{ speaker.designation }}
+
+                        </h6>
+
+                        <p>
+
+                            {{ speaker.organization }}
+
+                        </p>
+
+                        <p class="small text-muted">
+
+                            {{ speaker.biography|truncatewords:20 }}
+
+                        </p>
+
+                        {% if speaker.linkedin %}
+
+                        <a
+                            href="{{ speaker.linkedin }}"
+                            target="_blank"
+                            class="btn btn-outline-primary btn-sm">
+
+                            <i class="bi bi-linkedin"></i>
+
+                            LinkedIn
+
+                        </a>
+
+                        {% endif %}
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            {% empty %}
+
+            <div class="col-12">
+
+                <div class="alert alert-info text-center">
+
+                    Speakers will be announced soon.
+
+                </div>
+
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ========================================================= -->
+<!-- ORGANIZING COMMITTEE -->
+<!-- ========================================================= -->
+
+<section id="committee" class="committee-section py-5 bg-light">
+
+    <div class="container">
+
+        <div class="text-center mb-5">
+
+            <span class="section-tag">
+
+                ORGANIZING COMMITTEE
+
+            </span>
+
+            <h2 class="section-title mt-3">
+
+                Conference Committee
+
+            </h2>
+
+            <p class="section-description">
+
+                Meet the dedicated team organizing the conference.
+
+            </p>
+
+        </div>
+
+        <div class="row g-4">
+
+            {% for member in committee %}
+
+            <div class="col-lg-3 col-md-6">
+
+                <div class="committee-card text-center h-100 shadow">
+
+                    {% if member.photo %}
+
+                    <img
+                        src="{{ member.photo.url }}"
+                        class="committee-img"
+                        alt="{{ member.name }}">
+
+                    {% else %}
+
+                    <img
+                        src="{% static 'images/default-user.png' %}"
+                        class="committee-img"
+                        alt="Committee">
+
+                    {% endif %}
+
+                    <div class="committee-body">
+
+                        <h4>
+
+                            {{ member.name }}
+
+                        </h4>
+
+                        <h6>
+
+                            {{ member.designation }}
+
+                        </h6>
+
+                        <p>
+
+                            {{ member.organization }}
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            {% empty %}
+
+            <div class="col-12">
+
+                <div class="alert alert-info text-center">
+
+                    Committee members will be announced soon.
+
+                </div>
+
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ========================================================= -->
+<!-- CALL TO ACTION -->
+<!-- ========================================================= -->
+
+<section class="cta-section py-5">
+
+    <div class="container">
+
+        <div class="row align-items-center">
+
+            <div class="col-lg-8">
+
+                <h2>
+
+                    Present Your Research at {{ settings.short_name }}
+
+                </h2>
+
+                <p>
+
+                    Join researchers from around the world and showcase
+                    your innovative ideas.
+
+                </p>
+
+            </div>
+
+            <div class="col-lg-4 text-lg-end">
+
+                <a
+                    href="{% url 'submit_paper' %}"
+                    class="btn btn-primary btn-lg">
+
+                    Submit Paper
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ========================================================= -->
+<!-- CONFERENCE SCHEDULE -->
+<!-- ========================================================= -->
+
+<section id="schedule" class="schedule-section py-5 bg-light">
+
+    <div class="container">
+
+        <div class="text-center mb-5">
+
+            <span class="section-tag">
+
+                PROGRAM SCHEDULE
+
+            </span>
+
+            <h2 class="section-title mt-3">
+
+                Conference Schedule
+
+            </h2>
+
+            <p class="section-description">
+
+                Explore the complete conference agenda.
+
+            </p>
+
+        </div>
+
+        <div class="table-responsive">
+
+            <table class="table table-striped table-hover shadow">
+
+                <thead class="table-primary">
+
+                    <tr>
+
+                        <th>Day</th>
+
+                        <th>Time</th>
+
+                        <th>Event</th>
+
+                        <th>Speaker</th>
+
+                        <th>Venue</th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody>
+
+                    {% for item in schedule %}
+
+                    <tr>
+
+                        <td>
+
+                            {{ item.day }}
+
+                        </td>
+
+                        <td>
+
+                            {{ item.time }}
+
+                        </td>
+
+                        <td>
+
+                            {{ item.event }}
+
+                        </td>
+
+                        <td>
+
+                            {{ item.speaker }}
+
+                        </td>
+
+                        <td>
+
+                            {{ item.venue }}
+
+                        </td>
+
+                    </tr>
+
+                    {% empty %}
+
+                    <tr>
+
+                        <td colspan="5" class="text-center">
+
+                            Schedule will be updated soon.
+
+                        </td>
+
+                    </tr>
+
+                    {% endfor %}
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ========================================================= -->
+<!-- CONFERENCE GALLERY -->
+<!-- ========================================================= -->
+
+<section id="gallery" class="gallery-section py-5">
+
+    <div class="container">
+
+        <div class="text-center mb-5">
+
+            <span class="section-tag">
+
+                GALLERY
+
+            </span>
+
+            <h2 class="section-title mt-3">
+
+                Conference Gallery
+
+            </h2>
+
+            <p class="section-description">
+
+                Memories from previous conferences.
+
+            </p>
+
+        </div>
+
+        <div class="row g-4">
+
+            {% for image in gallery %}
+
+            <div class="col-lg-4 col-md-6">
+
+                <div class="gallery-card">
+
+                    <img
+                        src="{{ image.image.url }}"
+                        class="img-fluid rounded shadow"
+                        alt="{{ image.title }}">
+
+                    <div class="gallery-caption">
+
+                        {{ image.title }}
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            {% empty %}
+
+            <div class="col-12">
+
+                <div class="alert alert-info text-center">
+
+                    Gallery images will be uploaded soon.
+
+                </div>
+
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ========================================================= -->
+<!-- VENUE -->
+<!-- ========================================================= -->
+
+<section id="venue" class="venue-section py-5 bg-light">
+
+    <div class="container">
+
+        <div class="text-center mb-5">
+
+            <span class="section-tag">
+
+                VENUE
+
+            </span>
+
+            <h2 class="section-title mt-3">
+
+                Conference Venue
+
+            </h2>
+
+        </div>
+
+        {% if venue %}
+
+        <div class="row align-items-center">
+
+            <div class="col-lg-6">
+
+                {% if venue.image %}
+
+                <img
+                    src="{{ venue.image.url }}"
+                    class="img-fluid rounded shadow"
+                    alt="{{ venue.name }}">
+
+                {% endif %}
+
+            </div>
+
+            <div class="col-lg-6">
+
+                <h3>
+
+                    {{ venue.name }}
+
+                </h3>
+
+                <p>
+
+                    {{ venue.address }}
+
+                </p>
+
+                <a
+                    href="{{ venue.google_map_link }}"
+                    target="_blank"
+                    class="btn btn-primary mt-3">
+
+                    View on Google Maps
+
+                </a>
+
+            </div>
+
+        </div>
+
+        {% else %}
+
+        <div class="text-center">
+
+            <div class="alert alert-warning">
+
+                Venue details will be announced soon.
+
+            </div>
+
+        </div>
+
+        {% endif %}
+
+    </div>
+
+</section>
+
+
+
+<!-- ========================================================= -->
+<!-- QUICK ACTION -->
+<!-- ========================================================= -->
+
+<section class="py-5 text-center">
+
+    <div class="container">
+
+        <h2>
+
+            Don't Miss the Opportunity
+
+        </h2>
+
+        <p>
+
+            Register now and reserve your seat for the conference.
+
+        </p>
+
+        <a
+            href="{% url 'register' %}"
+            class="btn btn-primary btn-lg">
+
+            Register Today
+
+        </a>
+
+    </div>
+
+</section>
+<!-- ===========================================
+            ANNOUNCEMENTS
+=========================================== -->
+
+<section class="announcement-section py-5">
+
+    <div class="container">
+
+        <div class="text-center mb-5">
+
+            <span class="section-tag">
+                LATEST NEWS
+            </span>
+
+            <h2 class="section-title mt-3">
+                Announcements
+            </h2>
+
+            <p class="section-description">
+                Stay updated with the latest conference announcements and important notices.
+            </p>
+
+        </div>
+
+        <div class="row">
+
+            {% if announcements %}
+
+                {% for item in announcements %}
+
+                <div class="col-lg-4 col-md-6 mb-4">
+
+                    <div class="card announcement-card shadow-sm h-100">
+
+                        <div class="card-body">
+
+                            <h5 class="card-title">
+                                {{ item.title }}
+                            </h5>
+
+                            <p class="card-text">
+                                {{ item.description|truncatewords:25 }}
+                            </p>
+
+                        </div>
+
+                        <div class="card-footer bg-white border-0">
+
+                            <small class="text-muted">
+
+                                <i class="bi bi-calendar-event"></i>
+
+                                {{ item.created_at|date:"d M Y" }}
+
+                            </small>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                {% endfor %}
+
+            {% else %}
+
+                <div class="col-12 text-center">
+
+                    <div class="alert alert-info">
+
+                        No announcements available.
+
+                    </div>
+
+                </div>
+
+            {% endif %}
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ===========================================
+                CONTACT CTA
+=========================================== -->
+
+<section class="contact-section py-5">
+
+    <div class="container">
+
+        <div class="row align-items-center">
+
+            <div class="col-lg-8">
+
+                <h2 class="text-white mb-3">
+
+                    Have Questions?
+
+                </h2>
+
+                <p class="text-white mb-0">
+
+                    Our organizing committee is happy to assist you regarding
+                    registration, paper submission, accommodation,
+                    conference schedule and publication.
+
+                </p>
+
+            </div>
+
+            <div class="col-lg-4 text-lg-end mt-4 mt-lg-0">
+
+                <a href="{% url 'contact' %}"
+
+                   class="btn btn-light btn-lg">
+
+                    Contact Us
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ===========================================
+                FINAL CTA
+=========================================== -->
+
+<section class="final-cta py-5">
+
+    <div class="container text-center">
+
+        <h2>
+
+            Ready to Join the Conference?
+
+        </h2>
+
+        <p>
+
+            Register today and become part of an international
+            community of researchers, academicians,
+            scientists and industry professionals.
+
+        </p>
+
+        <div class="mt-4">
+
+            <a href="{% url 'register' %}"
+
+               class="btn btn-primary btn-lg me-3">
+
+                Register Now
+
+            </a>
+
+            <a href="{% url 'submit_paper' %}"
+
+               class="btn btn-outline-primary btn-lg">
+
+                Submit Paper
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ===========================================
+        COUNTER ANIMATION
+=========================================== -->
+
+<script>
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    const counters = document.querySelectorAll(".counter");
+
+    counters.forEach(counter => {
+
+        const target = Number(counter.getAttribute("data-target"));
+
+        let count = 0;
+
+        const speed = Math.max(10, target / 100);
+
+        function updateCounter() {
+
+            if (count < target) {
+
+                count += speed;
+
+                counter.innerText = Math.ceil(count);
+
+                requestAnimationFrame(updateCounter);
+
+            }
+
+            else {
+
+                counter.innerText = target;
+
+            }
+
+        }
+
+        updateCounter();
+
+    });
+
+});
+
+</script>
+
+{% endblock %}
+
+
+
+{% block extra_js %}
+
+<script src="{% static 'js/home.js' %}"></script>
+
+{% endblock %}

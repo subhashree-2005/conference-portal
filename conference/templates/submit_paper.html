@@ -1,0 +1,169 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+Paper Submission
+{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/submit_paper.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<!-- ==========================================
+                PAGE HEADER
+========================================== -->
+
+<section class="page-header">
+
+<div class="container text-center">
+
+<h1>Paper Submission</h1>
+
+<p>
+
+Submit your original research paper for peer review.
+
+</p>
+
+</div>
+
+</section>
+
+<!-- ==========================================
+            PAPER SUBMISSION
+========================================== -->
+
+<section class="paper-section">
+
+<div class="container">
+
+<div class="row">
+
+<!-- LEFT -->
+
+<div class="col-lg-8">
+
+<div class="paper-card">
+
+<h3 class="mb-4">
+
+Research Paper Submission
+
+</h3>
+
+{% if messages %}
+
+{% for message in messages %}
+
+<div class="alert alert-success">
+
+{{ message }}
+
+</div>
+
+{% endfor %}
+
+{% endif %}
+
+<form method="POST" enctype="multipart/form-data">
+
+{% csrf_token %}
+
+{{ form.as_p }}
+
+<div class="form-check mb-4">
+
+<input
+class="form-check-input"
+type="checkbox"
+required>
+
+<label class="form-check-label">
+
+I certify that this paper is original and has not been submitted elsewhere.
+
+</label>
+
+</div>
+
+<button
+type="submit"
+class="btn btn-primary btn-lg w-100">
+
+Submit Paper
+
+</button>
+
+</form>
+
+</div>
+
+</div>
+
+<!-- RIGHT -->
+
+<div class="col-lg-4">
+
+<div class="submission-info">
+
+<h4>
+
+Submission Guidelines
+
+</h4>
+
+<ul>
+
+<li>Paper must be in PDF format.</li>
+
+<li>Maximum size: 20 MB.</li>
+
+<li>IEEE Format only.</li>
+
+<li>Minimum 6 Pages.</li>
+
+<li>Maximum 10 Pages.</li>
+
+<li>English Language Only.</li>
+
+<li>Original Work Only.</li>
+
+</ul>
+
+</div>
+
+<div class="submission-info">
+
+<h4>
+
+Review Process
+
+</h4>
+
+<div class="timeline-small">
+
+<div><span>1</span> Paper Submission</div>
+
+<div><span>2</span> Peer Review</div>
+
+<div><span>3</span> Revision</div>
+
+<div><span>4</span> Acceptance</div>
+
+<div><span>5</span> Publication</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+{% endblock %}

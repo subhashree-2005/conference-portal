@@ -1,0 +1,159 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Sponsors & Partners{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/sponsors.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<section class="page-header">
+
+<div class="container">
+
+<h1>Sponsors & Partners</h1>
+
+<p>
+
+We sincerely thank our sponsors and academic partners for supporting the conference.
+
+</p>
+
+</div>
+
+</section>
+
+<!-- ======================== -->
+
+<section class="sponsor-section">
+
+<div class="container">
+
+<div class="text-center mb-5">
+
+<h2>Platinum Sponsor</h2>
+
+</div>
+
+<div class="row justify-content-center">
+
+<div class="col-lg-4">
+
+<div class="sponsor-card">
+
+<img src="{% static 'images/sponsors/company1.png' %}">
+
+<h5>Company Name</h5>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ======================== -->
+
+<section class="sponsor-section bg-light">
+
+<div class="container">
+
+<div class="text-center mb-5">
+
+<h2>Gold Sponsors</h2>
+
+</div>
+
+<div class="row g-4">
+
+{% for i in "1234" %}
+
+<div class="col-lg-3 col-md-6">
+
+<div class="sponsor-card">
+
+<img src="{% static 'images/sponsors/company2.png' %}">
+
+<h5>Company Name</h5>
+
+</div>
+
+</div>
+
+{% endfor %}
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ======================== -->
+
+<section class="sponsor-section">
+
+<div class="container">
+
+<div class="text-center mb-5">
+
+<h2>Academic Partners</h2>
+
+</div>
+
+<div class="row g-4">
+
+{% for i in "123456" %}
+
+<div class="col-lg-2 col-md-4 col-6">
+
+<div class="partner-card">
+
+<img src="{% static 'images/sponsors/university.png' %}">
+
+</div>
+
+</div>
+
+{% endfor %}
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ======================== -->
+
+<section class="become-sponsor">
+
+<div class="container text-center">
+
+<h2>
+
+Become a Sponsor
+
+</h2>
+
+<p>
+
+Partner with us to showcase your organization before researchers,
+faculty members, students and industry professionals.
+
+</p>
+
+<a href="/contact/" class="btn btn-warning btn-lg">
+
+Become Sponsor
+
+</a>
+
+</div>
+
+</section>
+
+{% endblock %}

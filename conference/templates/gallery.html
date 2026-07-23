@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Gallery{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/gallery.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<section class="page-header">
+
+<div class="container">
+
+<h1>Conference Gallery</h1>
+
+<p>
+
+Explore highlights from previous conferences.
+
+</p>
+
+</div>
+
+</section>
+
+<section class="gallery-section">
+
+<div class="container">
+
+<div class="row g-4">
+
+{% for i in "123456789012" %}
+
+<div class="col-lg-4 col-md-6">
+
+<div class="gallery-card">
+
+<img src="{% static 'images/gallery/gallery1.jpg' %}" alt="Gallery">
+
+<div class="gallery-overlay">
+
+<h5>Conference Event</h5>
+
+<p>ICSHI 2026</p>
+
+</div>
+
+</div>
+
+</div>
+
+{% endfor %}
+
+</div>
+
+</div>
+
+</section>
+
+{% endblock %}

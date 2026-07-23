@@ -1,0 +1,221 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+Conference Registration
+{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/register.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<!-- ==========================
+        PAGE HEADER
+=========================== -->
+
+<section class="page-header">
+<div class="container text-center">
+<h1>Conference Registration</h1>
+<p>Register yourself to participate in the conference.</p>
+</div>
+</section>
+
+<!-- ==========================
+        REGISTRATION
+=========================== -->
+
+<section class="registration-section">
+<div class="container">
+<div class="row">
+
+<!-- LEFT -->
+<div class="col-lg-8">
+<div class="registration-card">
+<h3 class="mb-4">Participant Registration</h3>
+
+{% if messages %}
+{% for message in messages %}
+<div class="alert alert-success">{{ message }}</div>
+{% endfor %}
+{% endif %}
+
+<form method="POST" enctype="multipart/form-data">
+{% csrf_token %}
+<div class="row">
+
+<div class="col-md-6 mb-3">
+<label>Full Name</label>
+{{ form.full_name }}
+</div>
+
+<div class="col-md-6 mb-3">
+<label>Email Address</label>
+{{ form.email }}
+</div>
+
+<div class="col-md-6 mb-3">
+<label>Phone Number</label>
+{{ form.phone }}
+</div>
+
+<div class="col-md-6 mb-3">
+<label>Organization</label>
+{{ form.organization }}
+</div>
+
+<div class="col-md-6 mb-3">
+<label>Designation</label>
+{{ form.designation }}
+</div>
+
+<div class="col-md-6 mb-3">
+<label>Country</label>
+{{ form.country }}
+</div>
+
+<div class="col-md-6 mb-3">
+<label>City</label>
+{{ form.city }}
+</div>
+
+<div class="col-md-6 mb-3">
+<label>Gender</label>
+{{ form.gender }}
+</div>
+
+<div class="col-md-6 mb-3">
+<label>Category</label>
+{{ form.category }}
+</div>
+
+<div class="col-md-6 mb-3">
+<div class="mb-4">
+<label>Registration Fee</label>
+<input type="text" id="registration_fee" class="form-control" readonly>
+</div>
+<label>Transaction ID</label>
+{{ form.transaction_id }}
+</div>
+
+<div class="col-12 mb-4">
+<label>Payment Receipt</label>
+{{ form.payment_receipt }}
+</div>
+
+</div>
+
+<button type="submit" class="btn btn-primary btn-lg w-100">Register Now</button>
+
+</form>
+</div>
+</div>
+
+<!-- RIGHT -->
+<div class="col-lg-4">
+
+<div class="info-card">
+<h4>Registration Benefits</h4>
+<ul>
+<li>Conference Kit</li>
+<li>Participation Certificate</li>
+<li>Keynote Sessions</li>
+<li>Technical Sessions</li>
+<li>Networking Events</li>
+<li>Conference Proceedings</li>
+</ul>
+</div>
+
+<div class="fee-card">
+<h4>Registration Fee</h4>
+<table class="table table-bordered table-fee">
+<thead>
+<tr>
+<th>Category</th>
+<th>Indian</th>
+<th>Foreign</th>
+</tr>
+</thead>
+<tbody>
+{% for fee in fees %}
+<tr>
+<td>{{ fee.category }}</td>
+<td>₹ {{ fee.indian_fee }}</td>
+<td>{{ fee.foreign_fee }}</td>
+</tr>
+{% endfor %}
+</tbody>
+</table>
+</div>
+
+<div class="payment-card">
+<h4>Registration Deadline</h4>
+<p>{{ payment.registration_deadline }}</p>
+<h4>Early Bird Deadline</h4>
+<p>{{ payment.early_bird_deadline }}</p>
+</div>
+
+<div class="payment-card">
+<h4>UPI Payment</h4>
+<p>{{ payment.upi_id }}</p>
+{% if payment.qr_code %}
+<div class="qr-code">
+<img src="{{ payment.qr_code.url }}" alt="QR">
+</div>
+{% endif %}
+</div>
+
+<div class="payment-card">
+<h4>Bank Details</h4>
+<p><strong>Bank :</strong> {{ payment.bank_name }}</p>
+<p><strong>Account :</strong> {{ payment.account_name }}</p>
+<p><strong>A/C Number :</strong> {{ payment.account_number }}</p>
+<p><strong>IFSC :</strong> {{ payment.ifsc_code }}</p>
+<p><strong>SWIFT :</strong> {{ payment.swift_code }}</p>
+</div>
+
+<div class="payment-card">
+<h4>Payment Instructions</h4>
+<p>{{ payment.payment_note }}</p>
+<hr>
+<strong>Support Email</strong>
+<p>{{ payment.support_email }}</p>
+</div>
+
+</div>
+</div>
+</div>
+</section>
+
+<script>
+const feeData = {
+{% for fee in fees %}
+"{{ fee.category }}": {
+india: "{{ fee.indian_fee }}",
+foreign: "{{ fee.foreign_fee }}"
+},
+{% endfor %}
+};
+
+const category = document.getElementById("id_category");
+const country = document.getElementById("id_country");
+const feeBox = document.getElementById("registration_fee");
+
+function updateFee(){
+    if(!category.value) return;
+    let value;
+    if(country.value.toLowerCase()=="india"){
+        value="₹ "+feeData[category.value].india;
+    } else {
+        value=feeData[category.value].foreign;
+    }
+    feeBox.value=value;
+}
+
+category.onchange=updateFee;
+country.onkeyup=updateFee;
+country.onchange=updateFee;
+</script>
+
+{% endblock %}

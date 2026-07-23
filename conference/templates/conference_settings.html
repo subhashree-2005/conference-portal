@@ -1,0 +1,217 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Conference Settings{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/conference_settings.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<section class="page-header">
+
+<div class="container">
+
+<h1>Conference Settings</h1>
+
+<p>
+
+Manage all website information from one place.
+
+</p>
+
+</div>
+
+</section>
+
+<section class="settings-section">
+
+<div class="container">
+
+<div class="settings-card">
+
+<form method="POST" enctype="multipart/form-data">
+
+{% csrf_token %}
+
+<div class="row">
+
+<div class="col-md-6 mb-4">
+
+<label>Conference Name</label>
+
+<input type="text"
+class="form-control"
+placeholder="International Conference on Smart Healthcare Innovation">
+
+</div>
+
+<div class="col-md-6 mb-4">
+
+<label>Short Name</label>
+
+<input type="text"
+class="form-control"
+placeholder="ICSHI 2027">
+
+</div>
+
+<div class="col-md-6 mb-4">
+
+<label>Conference Theme</label>
+
+<input type="text"
+class="form-control"
+placeholder="AI for Future Healthcare">
+
+</div>
+
+<div class="col-md-6 mb-4">
+
+<label>Conference Venue</label>
+
+<input type="text"
+class="form-control"
+placeholder="NIT Rourkela">
+
+</div>
+
+<div class="col-md-6 mb-4">
+
+<label>Email</label>
+
+<input type="email"
+class="form-control">
+
+</div>
+
+<div class="col-md-6 mb-4">
+
+<label>Phone</label>
+
+<input type="text"
+class="form-control">
+
+</div>
+
+<div class="col-md-6 mb-4">
+
+<label>Website</label>
+
+<input type="url"
+class="form-control">
+
+</div>
+
+<div class="col-md-6 mb-4">
+
+<label>Google Map Link</label>
+
+<input type="url"
+class="form-control">
+
+</div>
+
+<div class="col-md-6 mb-4">
+
+<label>Conference Logo</label>
+
+<input type="file"
+class="form-control">
+
+</div>
+
+<div class="col-md-6 mb-4">
+
+<label>Hero Banner</label>
+
+<input type="file"
+class="form-control">
+
+</div>
+
+<div class="col-12 mb-4">
+
+<label>Address</label>
+
+<textarea class="form-control"
+rows="3"></textarea>
+
+</div>
+
+<div class="col-12 mb-4">
+
+<label>About Conference</label>
+
+<textarea class="form-control"
+rows="6"></textarea>
+
+</div>
+
+<div class="col-md-4 mb-4">
+
+<label>Facebook</label>
+
+<input type="url"
+class="form-control">
+
+</div>
+
+<div class="col-md-4 mb-4">
+
+<label>LinkedIn</label>
+
+<input type="url"
+class="form-control">
+
+</div>
+
+<div class="col-md-4 mb-4">
+
+<label>Twitter / X</label>
+
+<input type="url"
+class="form-control">
+
+</div>
+
+<div class="col-md-6 mb-4">
+
+<label>Primary Color</label>
+
+<input type="color"
+class="form-control form-control-color">
+
+</div>
+
+<div class="col-md-6 mb-4">
+
+<label>Secondary Color</label>
+
+<input type="color"
+class="form-control form-control-color">
+
+</div>
+
+<div class="col-12 text-end">
+
+<button class="btn btn-success btn-lg">
+
+Save Settings
+
+</button>
+
+</div>
+
+</div>
+
+</form>
+
+</div>
+
+</div>
+
+</section>
+
+{% endblock %}

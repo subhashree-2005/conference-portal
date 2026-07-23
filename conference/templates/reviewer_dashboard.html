@@ -1,0 +1,184 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Reviewer Dashboard{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/reviewer_dashboard.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<section class="page-header">
+
+<div class="container">
+
+<h1>Reviewer Dashboard</h1>
+
+<p>
+
+Manage assigned papers and submit reviews.
+
+</p>
+
+</div>
+
+</section>
+
+<section class="review-dashboard">
+
+<div class="container">
+
+<div class="row g-4">
+
+<div class="col-lg-3">
+
+<div class="review-card">
+
+<h2>12</h2>
+
+<p>Assigned Papers</p>
+
+</div>
+
+</div>
+
+<div class="col-lg-3">
+
+<div class="review-card">
+
+<h2>8</h2>
+
+<p>Completed Reviews</p>
+
+</div>
+
+</div>
+
+<div class="col-lg-3">
+
+<div class="review-card">
+
+<h2>4</h2>
+
+<p>Pending Reviews</p>
+
+</div>
+
+</div>
+
+<div class="col-lg-3">
+
+<div class="review-card">
+
+<h2>67%</h2>
+
+<p>Completion</p>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="table-responsive mt-5">
+
+<table class="table table-hover">
+
+<thead>
+
+<tr>
+
+<th>Paper ID</th>
+
+<th>Title</th>
+
+<th>Track</th>
+
+<th>Deadline</th>
+
+<th>Status</th>
+
+<th>Action</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr>
+
+<td>PAPER001</td>
+
+<td>AI in Healthcare</td>
+
+<td>AI & ML</td>
+
+<td>25 Jul 2027</td>
+
+<td>
+
+<span class="badge bg-warning">
+
+Pending
+
+</span>
+
+</td>
+
+<td>
+
+<a href="#" class="btn btn-primary btn-sm">
+
+Review
+
+</a>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td>PAPER002</td>
+
+<td>Hardware Trojan Detection</td>
+
+<td>Cyber Security</td>
+
+<td>20 Jul 2027</td>
+
+<td>
+
+<span class="badge bg-success">
+
+Completed
+
+</span>
+
+</td>
+
+<td>
+
+<a href="#" class="btn btn-success btn-sm">
+
+View
+
+</a>
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+</div>
+
+</div>
+
+</section>
+
+{% endblock %}

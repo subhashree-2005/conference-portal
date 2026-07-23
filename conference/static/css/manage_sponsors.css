@@ -1,0 +1,93 @@
+.sponsors-section{
+
+padding:100px 0;
+
+background:#f8f9fc;
+
+}
+
+.table{
+
+background:#fff;
+
+border-radius:18px;
+
+overflow:hidden;
+
+box-shadow:0 10px 25px rgba(0,0,0,.08);
+
+}
+
+.table thead{
+
+background:#0d3f88;
+
+color:#fff;
+
+}
+
+.table th{
+
+padding:18px;
+
+font-weight:600;
+
+}
+
+.table td{
+
+padding:18px;
+
+vertical-align:middle;
+
+}
+
+.table tbody tr:hover{
+
+background:#eef4ff;
+
+}
+
+.sponsor-logo{
+
+width:90px;
+
+height:55px;
+
+object-fit:contain;
+
+background:#fff;
+
+padding:5px;
+
+border:1px solid #ddd;
+
+border-radius:10px;
+
+}
+
+.badge{
+
+padding:8px 15px;
+
+font-size:13px;
+
+}
+
+.btn-sm{
+
+margin-right:5px;
+
+margin-bottom:4px;
+
+}
+
+@media(max-width:768px){
+
+.sponsors-section{
+
+padding:70px 0;
+
+}
+
+}

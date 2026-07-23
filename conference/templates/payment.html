@@ -1,0 +1,306 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+Payment
+{% endblock %}
+
+{% block content %}
+
+<div class="container py-5">
+{% if messages %}
+
+    {% for message in messages %}
+
+        <div class="alert alert-success alert-dismissible fade show">
+
+            {{ message }}
+
+            <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="alert">
+            </button>
+
+        </div>
+
+    {% endfor %}
+
+{% endif %}
+
+    <div class="row">
+
+        <!-- Left Side -->
+
+        <div class="col-lg-7">
+
+            <div class="card shadow-lg border-0">
+
+                <div class="card-header bg-primary text-white">
+
+                    <h3 class="mb-0">
+                        Conference Payment
+                    </h3>
+
+                </div>
+
+                <div class="card-body">
+
+                    <table class="table">
+
+                        <tr>
+                            <th>Name</th>
+                            <td>{{ registration.full_name }}</td>
+                        </tr>
+
+                        <tr>
+                            <th>Email</th>
+                            <td>{{ registration.email }}</td>
+                        </tr>
+
+                        <tr>
+                            <th>Category</th>
+                            <td>{{ registration.category }}</td>
+                        </tr>
+
+                        <tr>
+                            <th>Registration Fee</th>
+                            <td>
+                                ₹ {{ registration.registration_fee }}
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <th>Status</th>
+                            <td>
+
+                                {% if registration.payment_status == "Paid" %}
+
+                                    <span class="badge bg-success">
+                                        Paid
+                                    </span>
+
+                                {% elif registration.payment_status == "Rejected" %}
+
+                                    <span class="badge bg-danger">
+                                        Rejected
+                                    </span>
+
+                                {% else %}
+
+                                    <span class="badge bg-warning text-dark">
+                                        Pending
+                                    </span>
+
+                                {% endif %}
+
+                            </td>
+
+                        </tr>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- Right Side -->
+
+        <div class="col-lg-5">
+
+            <div class="card shadow-lg border-0">
+
+                <div class="card-header bg-success text-white">
+
+                    <h4 class="mb-0">
+
+                        Payment Details
+
+                    </h4>
+
+                </div>
+
+                <div class="card-body text-center">
+
+                    {% if payment.qr_code %}
+
+                        <img src="{{ payment.qr_code.url }}"
+                             class="img-fluid mb-3"
+                             width="220">
+
+                    {% endif %}
+
+                    <h5>
+
+                        UPI ID
+
+                    </h5>
+
+                    <p>
+
+                        {{ payment.upi_id }}
+
+                    </p>
+
+                    <hr>
+
+                    <h5>
+
+                        Bank Details
+
+                    </h5>
+
+                    <p>
+
+                        <strong>{{ payment.bank_name }}</strong>
+
+                    </p>
+
+                    <p>
+
+                        {{ payment.account_name }}
+
+                    </p>
+
+                    <p>
+
+                        {{ payment.account_number }}
+
+                    </p>
+
+                    <p>
+
+                        IFSC :
+                        {{ payment.ifsc_code }}
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <br>
+
+    <div class="alert alert-info">
+
+<h5>Payment Instructions</h5>
+
+<ol>
+
+<li>Pay the registration fee using the QR Code or bank account.</li>
+
+<li>Complete the payment.</li>
+
+<li>Enter the Transaction ID exactly as shown in your banking app.</li>
+
+<li>Upload the payment receipt (PDF, JPG or PNG).</li>
+
+<li>Your payment will be verified by the organizing committee.</li>
+
+</ol>
+
+<h4 class="text-primary mt-3">
+
+Amount to Pay
+
+</h4>
+
+<h2>
+
+₹ {{ registration.registration_fee }}
+
+</h2>
+
+</div>
+    <div class="card shadow">
+
+        {% if registration.payment_status != "Paid" %}
+
+<div class="card shadow">
+
+    <div class="card-header bg-dark text-white">
+
+        Upload Payment Receipt
+
+    </div>
+
+    <div class="card-body">
+
+        <form method="POST" enctype="multipart/form-data">
+
+            {% csrf_token %}
+
+            <div class="mb-3">
+
+                <label class="form-label">
+
+                    Transaction ID
+
+                </label>
+
+                <input
+                    type="text"
+                    name="transaction_id"
+                    class="form-control"
+                    value="{{ registration.transaction_id }}"
+                    placeholder="Enter Transaction ID"
+                    required>
+
+            </div>
+
+            <div class="mb-3">
+
+                <label class="form-label">
+
+                    Upload Receipt
+
+                </label>
+
+                <input
+                    type="file"
+                    name="payment_receipt"
+                    class="form-control"
+                    accept=".jpg,.jpeg,.png,.pdf"
+                    required>
+
+            </div>
+
+            <button class="btn btn-primary btn-lg">
+
+                Submit Payment
+
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+{% else %}
+
+<div class="alert alert-success text-center shadow">
+
+    <h4>
+
+        Payment Already Verified
+
+    </h4>
+
+    <p>
+
+        Your payment has already been verified.
+
+        No further action is required.
+
+    </p>
+
+</div>
+
+{% endif %}

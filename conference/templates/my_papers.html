@@ -1,0 +1,158 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}My Papers{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/my_papers.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<section class="page-header">
+
+<div class="container">
+
+<h1>My Papers</h1>
+
+<p>
+
+Manage all your submitted research papers.
+
+</p>
+
+</div>
+
+</section>
+
+<section class="papers-section">
+
+<div class="container">
+
+<div class="d-flex justify-content-between align-items-center mb-4">
+
+<h2>Submitted Papers</h2>
+
+<a href="{% url 'submit_paper' %}" class="btn btn-primary">
+
+<i class="bi bi-plus-circle"></i>
+
+Submit New Paper
+
+</a>
+
+</div>
+
+<div class="table-responsive">
+
+<table class="table table-hover align-middle">
+
+<thead>
+
+<tr>
+
+<th>Paper ID</th>
+
+<th>Title</th>
+
+<th>Track</th>
+
+<th>Status</th>
+
+<th>Submitted</th>
+
+<th>Action</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr>
+
+<td>PAPER001</td>
+
+<td>Artificial Intelligence for Healthcare</td>
+
+<td>AI & ML</td>
+
+<td>
+
+<span class="badge bg-warning">
+
+Under Review
+
+</span>
+
+</td>
+
+<td>12 Jan 2027</td>
+
+<td>
+
+<a href="#" class="btn btn-sm btn-primary">
+
+View
+
+</a>
+
+<a href="#" class="btn btn-sm btn-success">
+
+Download
+
+</a>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td>PAPER002</td>
+
+<td>Hardware Trojan Detection</td>
+
+<td>Cyber Security</td>
+
+<td>
+
+<span class="badge bg-success">
+
+Accepted
+
+</span>
+
+</td>
+
+<td>18 Jan 2027</td>
+
+<td>
+
+<a href="#" class="btn btn-sm btn-primary">
+
+View
+
+</a>
+
+<a href="#" class="btn btn-sm btn-success">
+
+Download
+
+</a>
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+</div>
+
+</div>
+
+</section>
+
+{% endblock %}

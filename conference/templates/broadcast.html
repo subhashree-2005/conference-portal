@@ -1,0 +1,430 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+
+Broadcast Messages
+
+{% endblock %}
+
+{% block extra_css %}
+
+<link rel="stylesheet" href="{% static 'css/broadcast.css' %}">
+
+{% endblock %}
+
+{% block content %}
+
+<!-- ==========================================
+            HERO
+========================================== -->
+
+<section class="broadcast-hero">
+
+<div class="container">
+
+<div class="row align-items-center">
+
+<div class="col-lg-8">
+
+<h1>
+
+Broadcast Center
+
+</h1>
+
+<p>
+
+Send Email and WhatsApp notifications to all registered participants instantly.
+
+</p>
+
+</div>
+
+<div class="col-lg-4 text-lg-end">
+
+<a href="/dashboard/" class="btn btn-light btn-lg">
+
+<i class="bi bi-speedometer2 me-2"></i>
+
+Dashboard
+
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ==========================================
+            SEND MESSAGE
+========================================== -->
+
+<section class="py-5">
+
+<div class="container">
+
+<div class="row justify-content-center">
+
+<div class="col-lg-9">
+
+<div class="broadcast-card">
+
+<h2 class="mb-4">
+
+<i class="bi bi-send-fill text-primary me-2"></i>
+
+Send Broadcast
+
+</h2>
+
+<form method="POST">
+
+{% csrf_token %}
+
+<div class="mb-4">
+
+<label class="form-label">
+
+Subject
+
+</label>
+
+<input
+
+type="text"
+
+name="subject"
+
+class="form-control"
+
+placeholder="Enter Email Subject"
+
+required>
+
+</div>
+
+<div class="mb-4">
+
+<label class="form-label">
+
+Message
+
+</label>
+
+<textarea
+
+name="message"
+
+rows="8"
+
+class="form-control"
+
+placeholder="Write your announcement here..."
+
+required></textarea>
+
+</div>
+
+<div class="text-center">
+
+<button
+
+type="submit"
+
+class="btn btn-primary btn-lg px-5">
+
+<i class="bi bi-send-fill me-2"></i>
+
+Send Broadcast
+
+</button>
+
+</div>
+
+</form>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+<!-- ==========================================
+            BROADCAST HISTORY
+========================================== -->
+
+<section class="py-5 bg-light">
+
+<div class="container">
+
+<div class="text-center mb-5">
+
+<h2>
+
+Broadcast History
+
+</h2>
+
+<p class="text-muted">
+
+Previously sent announcements.
+
+</p>
+
+</div>
+
+<div class="table-responsive">
+
+<table class="table table-bordered table-hover align-middle shadow">
+
+<thead class="table-primary">
+
+<tr>
+
+<th width="8%">#</th>
+
+<th>Subject</th>
+
+<th>Message</th>
+
+<th width="12%">Email</th>
+
+<th width="15%">WhatsApp</th>
+
+<th width="12%">Status</th>
+
+<th width="18%">Date</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+{% for item in broadcasts %}
+
+<tr>
+
+<td>
+
+{{ forloop.counter }}
+
+</td>
+
+<td>
+
+<strong>
+
+{{ item.subject }}
+
+</strong>
+
+</td>
+
+<td>
+
+{{ item.message|truncatewords:15 }}
+
+</td>
+
+<td>
+
+{% if item.send_email %}
+
+<span class="badge bg-success">
+
+Sent
+
+</span>
+
+{% else %}
+
+<span class="badge bg-secondary">
+
+No
+
+</span>
+
+{% endif %}
+
+</td>
+
+<td>
+
+{% if item.send_whatsapp %}
+
+<span class="badge bg-success">
+
+Sent
+
+</span>
+
+{% else %}
+
+<span class="badge bg-secondary">
+
+No
+
+</span>
+
+{% endif %}
+
+</td>
+
+<td>
+
+{% if item.status == "Sent" %}
+
+<span class="badge bg-success">
+
+{{ item.status }}
+
+</span>
+
+{% elif item.status == "Pending" %}
+
+<span class="badge bg-warning text-dark">
+
+{{ item.status }}
+
+</span>
+
+{% else %}
+
+<span class="badge bg-danger">
+
+{{ item.status }}
+
+</span>
+
+{% endif %}
+
+</td>
+
+<td>
+
+{{ item.created_at|date:"d M Y H:i" }}
+
+</td>
+
+</tr>
+
+{% empty %}
+
+<tr>
+
+<td colspan="7" class="text-center">
+
+No Broadcast Messages Found.
+
+</td>
+
+</tr>
+
+{% endfor %}
+
+</tbody>
+
+</table>
+
+</div>
+
+</div>
+
+</section>
+<!-- ==========================================
+            INFORMATION
+========================================== -->
+
+<section class="py-5">
+
+<div class="container">
+
+<div class="row g-4">
+
+<div class="col-lg-4">
+
+<div class="info-card">
+
+<i class="bi bi-envelope-fill display-4 text-primary mb-3"></i>
+
+<h4>Email Broadcast</h4>
+
+<p>
+
+Send important conference announcements to all registered participants through email instantly.
+
+</p>
+
+</div>
+
+</div>
+
+<div class="col-lg-4">
+
+<div class="info-card">
+
+<i class="bi bi-whatsapp display-4 text-success mb-3"></i>
+
+<h4>WhatsApp Broadcast</h4>
+
+<p>
+
+Notify participants through WhatsApp using the integrated Green API service.
+
+</p>
+
+</div>
+
+</div>
+
+<div class="col-lg-4">
+
+<div class="info-card">
+
+<i class="bi bi-clock-history display-4 text-warning mb-3"></i>
+
+<h4>Broadcast History</h4>
+
+<p>
+
+Maintain a complete history of all notifications sent to conference participants.
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ==========================================
+            FOOTER
+========================================== -->
+
+<section class="py-4 bg-dark text-white">
+
+<div class="container text-center">
+
+<p class="mb-0">
+
+Conference Management System © 2026 | Broadcast Management
+
+</p>
+
+</div>
+
+</section>
+
+{% endblock %}

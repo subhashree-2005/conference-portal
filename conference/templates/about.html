@@ -1,0 +1,219 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}About Conference{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/about.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<!--==========================
+        PAGE HEADER
+===========================-->
+
+<section class="page-header">
+
+<div class="container">
+
+<h1>About Conference</h1>
+
+<p>
+
+Know more about the conference, objectives and vision.
+
+</p>
+
+</div>
+
+</section>
+
+<!--==========================
+        ABOUT
+===========================-->
+
+<section class="about-page">
+
+<div class="container">
+
+<div class="row align-items-center">
+
+<div class="col-lg-6">
+
+<img src="{% static 'images/about/about.jpg' %}"
+
+class="img-fluid rounded-4 shadow">
+
+</div>
+
+<div class="col-lg-6">
+
+<h2>
+
+{{ settings.conference_name }}
+
+</h2>
+
+<p>
+
+{{ settings.about_text }}
+
+</p>
+
+<p>
+
+The conference provides an international platform for
+researchers, scientists, academicians and industry experts
+to exchange innovative ideas and present high-quality
+research contributions.
+
+</p>
+
+<div class="row mt-4">
+
+<div class="col-md-6">
+
+<div class="about-box">
+
+<i class="bi bi-people-fill"></i>
+
+<h5>
+
+500+
+
+Participants
+
+</h5>
+
+</div>
+
+</div>
+
+<div class="col-md-6">
+
+<div class="about-box">
+
+<i class="bi bi-journal-richtext"></i>
+
+<h5>
+
+250+
+
+Research Papers
+
+</h5>
+
+</div>
+
+</div>
+
+<div class="col-md-6 mt-4">
+
+<div class="about-box">
+
+<i class="bi bi-mic-fill"></i>
+
+<h5>
+
+30+
+
+Speakers
+
+</h5>
+
+</div>
+
+</div>
+
+<div class="col-md-6 mt-4">
+
+<div class="about-box">
+
+<i class="bi bi-globe"></i>
+
+<h5>
+
+20+
+
+Countries
+
+</h5>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!--==========================
+        VISION
+===========================-->
+
+<section class="vision-section">
+
+<div class="container">
+
+<div class="row">
+
+<div class="col-lg-6">
+
+<div class="vision-card">
+
+<i class="bi bi-eye-fill"></i>
+
+<h3>
+
+Vision
+
+</h3>
+
+<p>
+
+To become one of the world's leading international conferences
+promoting innovation and research.
+
+</p>
+
+</div>
+
+</div>
+
+<div class="col-lg-6">
+
+<div class="vision-card">
+
+<i class="bi bi-bullseye"></i>
+
+<h3>
+
+Mission
+
+</h3>
+
+<p>
+
+To connect academia and industry by encouraging quality
+research and collaborations.
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+{% endblock %}

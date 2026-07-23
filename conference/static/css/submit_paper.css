@@ -1,0 +1,514 @@
+/*==================================================
+                HERO SECTION
+==================================================*/
+
+.submit-hero{
+
+background:linear-gradient(135deg,#0d6efd,#003b8b);
+
+padding:90px 0;
+
+color:#fff;
+
+}
+
+.submit-hero h1{
+
+font-size:48px;
+
+font-weight:700;
+
+margin-bottom:15px;
+
+}
+
+.submit-hero p{
+
+font-size:18px;
+
+opacity:.95;
+
+max-width:700px;
+
+}
+
+.submit-hero .btn{
+
+padding:14px 28px;
+
+font-weight:600;
+
+border-radius:10px;
+
+transition:.3s;
+
+}
+
+.submit-hero .btn:hover{
+
+transform:translateY(-3px);
+
+}
+
+
+/*==================================================
+                PAPER CARD
+==================================================*/
+
+.paper-card{
+
+background:#fff;
+
+padding:40px;
+
+border-radius:18px;
+
+box-shadow:0 15px 35px rgba(0,0,0,.10);
+
+}
+
+.paper-card h2{
+
+font-weight:700;
+
+color:#0d3f88;
+
+margin-bottom:30px;
+
+}
+
+.paper-card label{
+
+font-weight:600;
+
+margin-bottom:8px;
+
+}
+
+.paper-card input,
+
+.paper-card textarea,
+
+.paper-card select{
+
+width:100%;
+
+padding:14px 16px;
+
+border:1px solid #d9d9d9;
+
+border-radius:10px;
+
+transition:.3s;
+
+}
+
+.paper-card textarea{
+
+min-height:180px;
+
+resize:vertical;
+
+}
+
+.paper-card input:focus,
+
+.paper-card textarea:focus,
+
+.paper-card select:focus{
+
+outline:none;
+
+border-color:#0d6efd;
+
+box-shadow:0 0 12px rgba(13,110,253,.20);
+
+}
+/*==================================================
+                SUBMIT BUTTON
+==================================================*/
+
+.paper-card .btn{
+
+padding:14px 40px;
+
+font-size:18px;
+
+font-weight:600;
+
+border-radius:10px;
+
+transition:.3s;
+
+}
+
+.paper-card .btn:hover{
+
+transform:translateY(-3px);
+
+box-shadow:0 12px 25px rgba(13,110,253,.25);
+
+}
+
+
+/*==================================================
+                GUIDELINE CARDS
+==================================================*/
+
+.guide-card{
+
+background:#fff;
+
+padding:35px 25px;
+
+border-radius:18px;
+
+text-align:center;
+
+height:100%;
+
+transition:.35s;
+
+box-shadow:0 10px 25px rgba(0,0,0,.08);
+
+}
+
+.guide-card:hover{
+
+transform:translateY(-8px);
+
+box-shadow:0 20px 40px rgba(0,0,0,.15);
+
+}
+
+.guide-card i{
+
+font-size:55px;
+
+margin-bottom:20px;
+
+transition:.3s;
+
+}
+
+.guide-card:hover i{
+
+transform:scale(1.12);
+
+}
+
+.guide-card h4{
+
+font-weight:700;
+
+color:#0d3f88;
+
+margin-bottom:15px;
+
+}
+
+.guide-card p{
+
+color:#666;
+
+line-height:1.7;
+
+margin-bottom:0;
+
+}
+
+
+/*==================================================
+                REVIEW STEPS
+==================================================*/
+
+.review-step{
+
+background:#fff;
+
+padding:30px 20px;
+
+text-align:center;
+
+border-radius:18px;
+
+height:100%;
+
+box-shadow:0 10px 25px rgba(0,0,0,.08);
+
+transition:.35s;
+
+}
+
+.review-step:hover{
+
+transform:translateY(-8px);
+
+box-shadow:0 20px 40px rgba(0,0,0,.15);
+
+}
+
+.step-number{
+
+width:60px;
+
+height:60px;
+
+margin:auto;
+
+margin-bottom:20px;
+
+border-radius:50%;
+
+background:#0d6efd;
+
+color:#fff;
+
+font-size:24px;
+
+font-weight:700;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+}
+
+.review-step h5{
+
+font-weight:700;
+
+margin-bottom:15px;
+
+color:#0d3f88;
+
+}
+
+.review-step p{
+
+color:#666;
+
+line-height:1.7;
+
+}
+/*==================================================
+                ALERT BOX
+==================================================*/
+
+.alert{
+
+border-radius:12px;
+
+padding:20px;
+
+border:none;
+
+box-shadow:0 8px 20px rgba(0,0,0,.08);
+
+}
+
+.alert h4{
+
+font-weight:700;
+
+margin-bottom:15px;
+
+color:#0d3f88;
+
+}
+
+.alert ul{
+
+padding-left:20px;
+
+margin-bottom:0;
+
+}
+
+.alert li{
+
+margin-bottom:10px;
+
+line-height:1.7;
+
+color:#555;
+
+}
+
+
+/*==================================================
+                ANIMATION
+==================================================*/
+
+.paper-card,
+.guide-card,
+.review-step{
+
+animation:fadeUp .8s ease;
+
+}
+
+@keyframes fadeUp{
+
+from{
+
+opacity:0;
+
+transform:translateY(40px);
+
+}
+
+to{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+}
+
+
+/*==================================================
+                RESPONSIVE
+==================================================*/
+
+@media(max-width:991px){
+
+.submit-hero{
+
+padding:70px 0;
+
+}
+
+.submit-hero h1{
+
+font-size:38px;
+
+}
+
+.paper-card{
+
+padding:30px;
+
+}
+
+}
+
+@media(max-width:768px){
+
+.submit-hero{
+
+text-align:center;
+
+}
+
+.submit-hero h1{
+
+font-size:30px;
+
+}
+
+.submit-hero p{
+
+font-size:16px;
+
+}
+
+.paper-card{
+
+padding:25px;
+
+}
+
+.paper-card .btn{
+
+width:100%;
+
+}
+
+.guide-card{
+
+margin-bottom:20px;
+
+}
+
+.review-step{
+
+margin-bottom:20px;
+
+}
+
+}
+
+@media(max-width:576px){
+
+.submit-hero{
+
+padding:55px 0;
+
+}
+
+.submit-hero h1{
+
+font-size:26px;
+
+}
+
+.paper-card{
+
+padding:20px;
+
+}
+
+.paper-card input,
+
+.paper-card textarea,
+
+.paper-card select{
+
+padding:12px;
+
+}
+
+.step-number{
+
+width:50px;
+
+height:50px;
+
+font-size:20px;
+
+}
+
+}
+
+
+/*==================================================
+                FOOTER
+==================================================*/
+
+footer{
+
+background:#0d3f88;
+
+color:#fff;
+
+padding:30px 0;
+
+}
+
+footer p{
+
+margin:0;
+
+font-size:15px;
+
+}
+
+
+/*==================================================
+                END
+==================================================*/

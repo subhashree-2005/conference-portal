@@ -1,0 +1,415 @@
+/*==================================================
+                BROADCAST HERO
+==================================================*/
+
+.broadcast-hero{
+
+background:linear-gradient(135deg,#0d6efd,#003b8b);
+
+padding:90px 0;
+
+color:#fff;
+
+}
+
+.broadcast-hero h1{
+
+font-size:48px;
+
+font-weight:700;
+
+margin-bottom:15px;
+
+}
+
+.broadcast-hero p{
+
+font-size:18px;
+
+opacity:.95;
+
+max-width:700px;
+
+}
+
+.broadcast-hero .btn{
+
+padding:14px 28px;
+
+font-weight:600;
+
+border-radius:10px;
+
+transition:.3s;
+
+}
+
+.broadcast-hero .btn:hover{
+
+transform:translateY(-3px);
+
+}
+
+
+/*==================================================
+                SEND MESSAGE CARD
+==================================================*/
+
+.broadcast-card{
+
+background:#fff;
+
+padding:40px;
+
+border-radius:18px;
+
+box-shadow:0 15px 35px rgba(0,0,0,.10);
+
+}
+
+.broadcast-card h2{
+
+font-weight:700;
+
+color:#0d3f88;
+
+margin-bottom:30px;
+
+}
+
+.broadcast-card label{
+
+font-weight:600;
+
+margin-bottom:8px;
+
+}
+
+.broadcast-card input,
+
+.broadcast-card textarea{
+
+width:100%;
+
+padding:14px 16px;
+
+border:1px solid #d9d9d9;
+
+border-radius:10px;
+
+transition:.3s;
+
+}
+
+.broadcast-card input:focus,
+
+.broadcast-card textarea:focus{
+
+outline:none;
+
+border-color:#0d6efd;
+
+box-shadow:0 0 12px rgba(13,110,253,.20);
+
+}
+/*==================================================
+                BUTTON
+==================================================*/
+
+.broadcast-card .btn{
+
+padding:14px 40px;
+
+font-size:18px;
+
+font-weight:600;
+
+border-radius:10px;
+
+transition:.3s;
+
+}
+
+.broadcast-card .btn:hover{
+
+transform:translateY(-3px);
+
+box-shadow:0 12px 25px rgba(13,110,253,.25);
+
+}
+
+
+/*==================================================
+                TABLE
+==================================================*/
+
+.table{
+
+background:#fff;
+
+border-radius:15px;
+
+overflow:hidden;
+
+}
+
+.table thead{
+
+background:#0d6efd;
+
+color:#fff;
+
+}
+
+.table th{
+
+padding:18px;
+
+font-weight:600;
+
+vertical-align:middle;
+
+}
+
+.table td{
+
+padding:16px;
+
+vertical-align:middle;
+
+}
+
+.table tbody tr{
+
+transition:.25s;
+
+}
+
+.table tbody tr:hover{
+
+background:#f5f9ff;
+
+}
+
+
+/*==================================================
+                BADGES
+==================================================*/
+
+.badge{
+
+padding:8px 14px;
+
+font-size:13px;
+
+font-weight:600;
+
+border-radius:20px;
+
+}
+/*==================================================
+                INFO CARDS
+==================================================*/
+
+.info-card{
+
+background:#fff;
+
+padding:35px 25px;
+
+border-radius:18px;
+
+text-align:center;
+
+height:100%;
+
+transition:.35s;
+
+box-shadow:0 10px 25px rgba(0,0,0,.08);
+
+}
+
+.info-card:hover{
+
+transform:translateY(-8px);
+
+box-shadow:0 20px 40px rgba(0,0,0,.15);
+
+}
+
+.info-card i{
+
+font-size:55px;
+
+margin-bottom:20px;
+
+transition:.3s;
+
+}
+
+.info-card:hover i{
+
+transform:scale(1.12);
+
+}
+
+.info-card h4{
+
+font-weight:700;
+
+color:#0d3f88;
+
+margin-bottom:15px;
+
+}
+
+.info-card p{
+
+color:#666;
+
+line-height:1.7;
+
+margin-bottom:0;
+
+}
+
+
+/*==================================================
+                ANIMATION
+==================================================*/
+
+.broadcast-card,
+.info-card,
+.table{
+
+animation:fadeUp .8s ease;
+
+}
+
+@keyframes fadeUp{
+
+from{
+
+opacity:0;
+
+transform:translateY(40px);
+
+}
+
+to{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+}
+
+
+/*==================================================
+                RESPONSIVE
+==================================================*/
+
+@media(max-width:991px){
+
+.broadcast-hero{
+
+padding:70px 0;
+
+}
+
+.broadcast-hero h1{
+
+font-size:38px;
+
+}
+
+.broadcast-card{
+
+padding:30px;
+
+}
+
+}
+
+@media(max-width:768px){
+
+.broadcast-hero{
+
+text-align:center;
+
+}
+
+.broadcast-hero h1{
+
+font-size:30px;
+
+}
+
+.broadcast-hero p{
+
+font-size:16px;
+
+}
+
+.broadcast-card{
+
+padding:25px;
+
+}
+
+.table{
+
+font-size:14px;
+
+}
+
+.info-card{
+
+margin-bottom:20px;
+
+}
+
+}
+
+@media(max-width:576px){
+
+.broadcast-hero{
+
+padding:55px 0;
+
+}
+
+.broadcast-hero h1{
+
+font-size:26px;
+
+}
+
+.broadcast-card{
+
+padding:20px;
+
+}
+
+.broadcast-card input,
+
+.broadcast-card textarea{
+
+padding:12px;
+
+}
+
+.broadcast-card .btn{
+
+width:100%;
+
+}
+
+}
+
+
+/*==================================================
+                END
+==================================================*/

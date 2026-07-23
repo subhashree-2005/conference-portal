@@ -1,0 +1,260 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Contact Us{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/contact.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<!-- ================================= -->
+
+<section class="page-header">
+
+<div class="container">
+
+<h1>Contact Us</h1>
+
+<p>
+
+We're here to help. Get in touch with the conference organizers.
+
+</p>
+
+</div>
+
+</section>
+
+<!-- ================================= -->
+
+<section class="contact-section">
+
+<div class="container">
+
+<div class="row">
+
+<div class="col-lg-5">
+
+<div class="contact-info">
+
+<h2>
+
+Conference Secretariat
+
+</h2>
+
+<div class="info-item">
+
+<i class="bi bi-geo-alt-fill"></i>
+
+<div>
+
+<h5>Address</h5>
+
+<p>
+
+{{ settings.address }}
+
+</p>
+
+</div>
+
+</div>
+
+<div class="info-item">
+
+<i class="bi bi-envelope-fill"></i>
+
+<div>
+
+<h5>Email</h5>
+
+<p>
+
+{{ settings.email }}
+
+</p>
+
+</div>
+
+</div>
+
+<div class="info-item">
+
+<i class="bi bi-telephone-fill"></i>
+
+<div>
+
+<h5>Phone</h5>
+
+<p>
+
+{{ settings.phone }}
+
+</p>
+
+</div>
+
+</div>
+
+<div class="info-item">
+
+<i class="bi bi-clock-fill"></i>
+
+<div>
+
+<h5>Office Hours</h5>
+
+<p>
+
+Monday - Friday
+
+9:00 AM - 5:00 PM
+
+</p>
+
+</div>
+
+</div>
+
+<div class="social-links mt-4">
+
+<a href="#"><i class="bi bi-facebook"></i></a>
+
+<a href="#"><i class="bi bi-twitter-x"></i></a>
+
+<a href="#"><i class="bi bi-linkedin"></i></a>
+
+<a href="#"><i class="bi bi-youtube"></i></a>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="col-lg-7">
+
+<div class="contact-form">
+
+<h2>
+
+Send Message
+
+</h2>
+
+<form method="POST">
+
+{% csrf_token %}
+
+<div class="row">
+
+<div class="col-md-6 mb-3">
+
+<input
+
+type="text"
+
+class="form-control"
+
+placeholder="Full Name"
+
+required>
+
+</div>
+
+<div class="col-md-6 mb-3">
+
+<input
+
+type="email"
+
+class="form-control"
+
+placeholder="Email Address"
+
+required>
+
+</div>
+
+</div>
+
+<div class="mb-3">
+
+<input
+
+type="text"
+
+class="form-control"
+
+placeholder="Subject"
+
+required>
+
+</div>
+
+<div class="mb-3">
+
+<textarea
+
+class="form-control"
+
+rows="6"
+
+placeholder="Message"
+
+required>
+
+</textarea>
+
+</div>
+
+<button class="btn btn-primary btn-lg">
+
+Send Message
+
+</button>
+
+</form>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ================================= -->
+
+<section class="map-section">
+
+<div class="container">
+
+<h2 class="text-center mb-5">
+
+Find Us
+
+</h2>
+
+<div class="map-box">
+
+<iframe
+
+src="https://www.google.com/maps?q=NIT%20Rourkela&output=embed"
+
+loading="lazy">
+
+</iframe>
+
+</div>
+
+</div>
+
+</section>
+
+{% endblock %}

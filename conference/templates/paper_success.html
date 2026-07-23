@@ -1,0 +1,301 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+
+Paper Submitted Successfully
+
+{% endblock %}
+
+{% block extra_css %}
+
+<link rel="stylesheet" href="{% static 'css/paper_success.css' %}">
+
+{% endblock %}
+
+{% block content %}
+
+<!-- ==========================================
+            PAPER SUBMISSION SUCCESS
+========================================== -->
+
+<section class="paper-success-hero">
+
+<div class="container">
+
+<div class="row justify-content-center">
+
+<div class="col-lg-9">
+
+<div class="paper-success-card text-center">
+
+<div class="success-icon">
+
+<i class="bi bi-file-earmark-check-fill"></i>
+
+</div>
+
+<h1>
+
+Paper Submitted Successfully!
+
+</h1>
+
+<p>
+
+Thank you for submitting your research paper.
+
+Your submission has been received successfully and is now under review by our technical committee.
+
+</p>
+
+<div class="alert alert-success mt-4">
+
+<strong>Submission Status :</strong>
+
+<span class="badge bg-success">
+
+Submitted
+
+</span>
+
+<hr>
+
+✔ Your paper has been uploaded successfully.
+
+<br>
+
+✔ A confirmation email will be sent shortly.
+
+<br>
+
+✔ Review results will be announced after evaluation.
+
+</div>
+
+<div class="mt-4">
+
+<a href="/"
+
+class="btn btn-primary btn-lg me-3">
+
+<i class="bi bi-house-fill me-2"></i>
+
+Home
+
+</a>
+
+<a href="/register/"
+
+class="btn btn-success btn-lg">
+
+<i class="bi bi-person-plus-fill me-2"></i>
+
+Register Now
+
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+<!-- ==========================================
+            NEXT STEPS
+========================================== -->
+
+<section class="py-5 bg-light">
+
+<div class="container">
+
+<div class="text-center mb-5">
+
+<h2>
+
+What Happens Next?
+
+</h2>
+
+<p class="text-muted">
+
+The following steps will be carried out after your submission.
+
+</p>
+
+</div>
+
+<div class="row g-4">
+
+<div class="col-lg-4">
+
+<div class="info-card">
+
+<i class="bi bi-search text-primary"></i>
+
+<h4>
+
+Technical Review
+
+</h4>
+
+<p>
+
+Your paper will be reviewed by experts based on originality,
+technical quality and relevance to the conference.
+
+</p>
+
+</div>
+
+</div>
+
+<div class="col-lg-4">
+
+<div class="info-card">
+
+<i class="bi bi-envelope-check-fill text-success"></i>
+
+<h4>
+
+Notification
+
+</h4>
+
+<p>
+
+Acceptance or rejection notification will be sent to your
+registered email address on the scheduled date.
+
+</p>
+
+</div>
+
+</div>
+
+<div class="col-lg-4">
+
+<div class="info-card">
+
+<i class="bi bi-award-fill text-warning"></i>
+
+<h4>
+
+Presentation
+
+</h4>
+
+<p>
+
+Accepted papers will be presented during the conference and
+included in the conference proceedings.
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ==========================================
+            CONTACT INFORMATION
+========================================== -->
+
+<section class="py-5">
+
+<div class="container">
+
+<div class="row justify-content-center">
+
+<div class="col-lg-8">
+
+<div class="card shadow border-0">
+
+<div class="card-body text-center p-5">
+
+<h3>
+
+Need Assistance?
+
+</h3>
+
+<p>
+
+If you have any questions regarding your submission,
+please contact the organizing committee.
+
+</p>
+
+<p>
+
+<i class="bi bi-envelope-fill text-primary me-2"></i>
+
+{{ settings.email }}
+
+</p>
+
+<p>
+
+<i class="bi bi-telephone-fill text-success me-2"></i>
+
+{{ settings.phone }}
+
+</p>
+
+<p>
+
+<i class="bi bi-geo-alt-fill text-danger me-2"></i>
+
+{{ settings.address }}
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ==========================================
+                FOOTER
+========================================== -->
+
+<section class="bg-dark text-white py-4">
+
+<div class="container text-center">
+
+<p class="mb-0">
+
+© {{ settings.conference_name }}
+
+|
+
+Paper Submission Successful
+
+|
+
+All Rights Reserved.
+
+</p>
+
+</div>
+
+</section>
+
+{% endblock %}
