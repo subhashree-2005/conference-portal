@@ -67,6 +67,10 @@ INSTALLED_APPS = [
 
     'django.contrib.staticfiles',
 
+    'cloudinary_storage',
+
+    'cloudinary',
+
     'conference',
 
 ]
@@ -177,10 +181,39 @@ STATICFILES_DIRS = [
 ]
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 
-STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
-
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
+
+# -----------------------------
+# Cloud storage for uploads (logos, hero images, papers, receipts)
+# -----------------------------
+# Render's free plan wipes uploaded files on every redeploy (no persistent
+# disk). Cloudinary stores them in the cloud instead, for free, so nothing
+# ever gets lost - works the same whether CLOUDINARY_URL is set or not.
+# -----------------------------
+# Cloud storage for uploads (logos, hero images, papers, receipts)
+# -----------------------------
+# Render's free plan wipes uploaded files on every redeploy (no persistent
+# disk). Cloudinary stores them in the cloud instead, for free, so nothing
+# ever gets lost. Falls back to local disk automatically if CLOUDINARY_URL
+# isn't set (e.g. while developing on your own PC).
+STORAGES = {
+    "default": {
+        "BACKEND": (
+            "cloudinary_storage.storage.MediaCloudinaryStorage"
+            if os.environ.get("CLOUDINARY_URL")
+            else "django.core.files.storage.FileSystemStorage"
+        ),
+    },
+    "staticfiles": {
+        "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
+    },
+}
+
+# Compatibility shim only: django-cloudinary-storage's own collectstatic
+# command still checks this old-style setting directly and crashes if it's
+# missing, even though STORAGES (above) is what Django itself actually uses.
+STATICFILES_STORAGE = STORAGES["staticfiles"]["BACKEND"]
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 

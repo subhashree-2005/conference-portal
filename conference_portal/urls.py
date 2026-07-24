@@ -1,7 +1,8 @@
 from django.contrib import admin
-from django.urls import path, include
+from django.urls import path, re_path, include
 from django.http import HttpResponse
 from django.template.loader import render_to_string
+from django.views.static import serve as serve_static
 
 from django.conf import settings
 from django.conf.urls.static import static
@@ -16,8 +17,6 @@ def robots_txt(request):
 
 
 def sitemap_xml(request):
-    # Public, search-engine-relevant pages only. Add new page names here
-    # whenever you add a new public URL you want Google to index.
     page_names = [
         "home", "register", "submit_paper", "contact",
     ]
@@ -49,12 +48,10 @@ urlpatterns = [
 
 ]
 
-# NOTE: Django serving media files itself is not the most efficient way to
-# do it at large scale, but for a conference site's traffic level it is
-# perfectly fine and much simpler than configuring a separate storage
-# service. This used to only run when DEBUG=True, which meant uploaded
-# papers/photos/receipts would 404 in production - now it works in both.
-urlpatterns += static(
-    settings.MEDIA_URL,
-    document_root=settings.MEDIA_ROOT
-)
+urlpatterns += [
+    re_path(
+        r"^media/(?P<path>.*)$",
+        serve_static,
+        {"document_root": settings.MEDIA_ROOT},
+    ),
+]
