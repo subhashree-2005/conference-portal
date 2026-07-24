@@ -258,6 +258,8 @@ JAZZMIN_SETTINGS = {
 
     "welcome_sign": "Welcome to Conference Management System",
 
+    "show_ui_builder": False,
+
     "copyright": "© 2026 Conference Portal",
 
     "show_sidebar": True,
