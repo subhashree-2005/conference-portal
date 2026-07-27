@@ -184,7 +184,7 @@ Thank you for registering.
 Conference Organizing Committee
 """,
 
-                    from_email=django_settings.EMAIL_HOST_USER,
+                    from_email=django_settings.DEFAULT_FROM_EMAIL,
 
                     recipient_list=[
                         registration.email
