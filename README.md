@@ -3,7 +3,7 @@
 A web-based Conference Management System developed using Django for managing conference registrations, paper submissions, speakers, announcements, and schedules.
 
 ### Live Website
-https://conference-portal-sqa5.onrender.com/
+https://conference-portal-2026.onrender.com/
 
 A web-based Conference Management System developed using Django.
 
@@ -234,7 +234,7 @@ http://127.0.0.1:8000
 Admin Panel:
 
 ```text
-http://127.0.0.1:8000/admin
+https://conference-portal-2026.onrender.com/admin/
 ```
 
 ---
